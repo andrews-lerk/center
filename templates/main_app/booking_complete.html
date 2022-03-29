@@ -1,0 +1,58 @@
+{% extends 'main_app/base.html' %}
+{% load static %}
+
+{% block active_main %}
+	<li ><a href="{% url 'home' %}">Главная</a>
+{% endblock %}
+		{% block content %}
+		<div class="mg-page-title parallax">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<h2>Спасибо</h2>
+						<p></p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="mg-page">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="mg-booking-form">
+							<div class="tab-content">
+									<div class="alert alert-success alert-dismissible clearfix">
+										<button class="close" type="button" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+										<div class="mg-alert-icon"><i class="fa fa-check"></i></div>
+										<h3 class="mg-alert-payment">Мы приняли вашу заявку! Скоро Вам перезвонит менеджер для выяснения подробностей</h3>
+									</div>
+									<div class="mg-cart-container mg-paid">
+										<aside class="mg-widget mt50" id="mg-room-cart">
+											<h2 class="mg-widget-title">Детали бронирования</h2>
+											<div class="mg-widget-cart">
+												<div class="row">
+													<div class="col-md-6">
+														<div class="mg-cart-room"><img class="img-fluid" src="{% static 'assets/images/room-1.png' %}" alt="Delux Room">
+															<h3>Номер: {{ type }}</h3>
+															<p></p>
+														</div>
+													</div>
+													<div class="col-md-6">
+														<h3 class="mg-payment-id">Полный курс лечения</h3>
+														<div class="mg-widget-cart-row"><strong>Дата заезда:</strong><span>{{ check_in }}</span></div>
+														<div class="mg-widget-cart-row"><strong>Дата выезда:</strong><span>{{ check_out }}</span></div>
+														<div class="mg-widget-cart-row"><strong>Взрослые:</strong><span>{{ adult }}</span></div>
+														<div class="mg-cart-total"><strong>Total:</strong><span>$249.99</span></div>
+														<a href="{% url 'home' %}"><button class="btn btn-main" type="submit">Вернуться на главную</button></a>
+													</div>
+												</div>
+											</div>
+										</aside>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+{% endblock content %}
