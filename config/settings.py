@@ -78,16 +78,6 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'HOST': 'localhost',
-        'NAME': 'medical_center',
-        'USER': 'andrew',
-        'PASSWORD': 'andrew'
-    }
-}
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
@@ -249,3 +239,7 @@ CKEDITOR_CONFIGS = {
         ]),
     }
 }
+try:
+    from .local_settings import *
+except:
+    pass
