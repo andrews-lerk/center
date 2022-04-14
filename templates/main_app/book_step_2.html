@@ -22,12 +22,113 @@
 						<div class="mg-booking-form">
 							<div class="tab-content">
 		<div class="mg-available-rooms">
+			<div class="row">
+			<div class="col-md-6">
+							<div class="alert alert-dark " role="alert"><i class="fa fa-circle"></i> <strong> Выбранные даты: {{ check_in }} - {{ check_out }}
+								&nbsp;(Кол. дней: {{ days_count }})</strong>
+								</div>
+						</div>
+						<div class="col-md-6">
+							<div class="alert alert-dark " role="alert"><i class="fa fa-circle"></i> <strong> Количество взрослых: {{ adult }}</strong>
+								</div>
+						</div>
+			</div>
+										{% if luxe_free > 0 %}
 										<div class="mg-avl-room">
 											<div class="row">
 												<div class="col-sm-5"><a href="#"><img class="img-fluid" src="{% static 'assets/images/room-1.png' %}" alt=""/></a></div>
 												<div class="col-sm-7">
-													<h3 class="mg-avl-room-title"><a href="#">Комфорт</a><span>$249<sup>.99</sup>/Ночь</span></h3>
-													<p>Описание номера</p>
+													<h3 class="mg-avl-room-title"><a href="#">Комфорт</a><span>₽{{ luxe_price }}/Весь курс</span></h3>
+													<p style="color: green;">Номеров свободно на выбранные даты: {{ luxe_free }} из {{ luxe_count }}</p>
+													<div class="row mg-room-fecilities">
+														<div class="col-sm-6">
+															<ul>
+																<li><i class="fp-ht-bed"></i> 2-x спальная кровать
+																</li>
+																<li><i class="fp-ht-food"></i> Завтрак в номер
+																</li>
+																<li><i class="far fa-sun"></i> Кондиционер
+																</li>
+															</ul>
+														</div>
+														<div class="col-sm-6">
+															<ul>
+																<li><i class="fp-ht-dumbbell"></i> GYM fecility
+																</li>
+																<li><i class="fp-ht-tv"></i> TV LCD
+																</li>
+																<li><i class="fp-ht-computer"></i> Бесплатный Wi-fi
+																</li>
+															</ul>
+														</div>
+													</div>
+													<form method="post" action="{% url 'booking_personal_info' %}">
+														{% csrf_token %}
+														<input type="hidden" name="price" value="{{ luxe_price }}">
+														<input type="hidden" name="check_in" value="{{ check_in }}">
+														<input type="hidden" name="check_out" value="{{ check_out }}">
+														<input type="hidden" name="adult" value="{{ adult }}">
+														<input type="hidden" name="type" value="Комфорт">
+														<div class="col-md-12 col-lg-4">
+													<button class="btn btn-main btn-block" type="submit">Выбрать этот номер</button>
+														</div>
+													</form>
+												</div>
+											</div>
+										</div>
+										{% endif %}
+			<div class="mg-available-rooms">
+										{% if standart_free > 0 %}
+										<div class="mg-avl-room">
+											<div class="row">
+												<div class="col-sm-5"><a href="#"><img class="img-fluid" src="{% static 'assets/images/room-1.png' %}" alt=""/></a></div>
+												<div class="col-sm-7">
+													<h3 class="mg-avl-room-title"><a href="#">Стандарт</a><span>₽{{ standart_price }}/Весь курс</span></h3>
+													<p style="color: green;">Номеров свободно на выбранные даты: {{ standart_free }} из {{ standart_count }}</p>
+													<div class="row mg-room-fecilities">
+														<div class="col-sm-6">
+															<ul>
+																<li><i class="fp-ht-bed"></i> 2-x спальная кровать
+																</li>
+																<li><i class="fp-ht-food"></i> Завтрак в номер
+																</li>
+																<li><i class="far fa-sun"></i> Кондиционер
+																</li>
+															</ul>
+														</div>
+														<div class="col-sm-6">
+															<ul>
+																<li><i class="fp-ht-dumbbell"></i> GYM fecility
+																</li>
+																<li><i class="fp-ht-tv"></i> TV LCD
+																</li>
+																<li><i class="fp-ht-computer"></i> Бесплатный Wi-fi
+																</li>
+															</ul>
+														</div>
+													</div>
+													<form method="post" action="{% url 'booking_personal_info' %}">
+														{% csrf_token %}
+														<input type="hidden" name="price" value="{{ standart_price }}">
+														<input type="hidden" name="check_in" value="{{ check_in }}">
+														<input type="hidden" name="check_out" value="{{ check_out }}">
+														<input type="hidden" name="adult" value="{{ adult }}">
+														<input type="hidden" name="type" value="Стандарт">
+														<div class="col-md-12 col-lg-4">
+													<button class="btn btn-main btn-block" type="submit">Выбрать этот номер</button>
+														</div>
+													</form>
+												</div>
+											</div>
+										</div>
+										{% endif %}
+										{% if luxe_free <= 0 %}
+										<div class="mg-avl-room">
+											<div class="row">
+												<div class="col-sm-5"><a href="#"><img class="img-fluid" src="{% static 'assets/images/room-1.png' %}" alt=""/></a></div>
+												<div class="col-sm-7">
+													<h3 class="mg-avl-room-title"><a href="#">Комфорт</a><span>₽{{ luxe_price }}/Весь курс</span></h3>
+													<p style="color: orange;">К сожалению на выбранные даты свободных номеров нет</p>
 													<div class="row mg-room-fecilities">
 														<div class="col-sm-6">
 															<ul>
@@ -57,19 +158,20 @@
 														<input type="hidden" name="adult" value="{{ adult }}">
 														<input type="hidden" name="type" value="Комфорт">
 														<div class="col-md-12 col-lg-4">
-													<button class="btn btn-main btn-block" type="submit">Выбрать этот номер</button>
+															<a href="{% url 'booking' %}"><button class="btn btn-main btn-block" type="button">Выбрать другую дату</button></a>
 														</div>
 													</form>
 												</div>
 											</div>
 										</div>
-			<div class="mg-available-rooms">
+										{% endif %}
+										{% if standart_free <= 0 %}
 										<div class="mg-avl-room">
 											<div class="row">
 												<div class="col-sm-5"><a href="#"><img class="img-fluid" src="{% static 'assets/images/room-1.png' %}" alt=""/></a></div>
 												<div class="col-sm-7">
-													<h3 class="mg-avl-room-title"><a href="#">Стандарт</a><span>$249<sup>.99</sup>/Ночь</span></h3>
-													<p>Описание номера</p>
+													<h3 class="mg-avl-room-title"><a href="#">Стандарт</a><span>₽{{ standart_price }}/Весь курс</span></h3>
+													<p style="color: orange;">К сожалению на выбранные даты свободных номеров нет</p>
 													<div class="row mg-room-fecilities">
 														<div class="col-sm-6">
 															<ul>
@@ -98,13 +200,14 @@
 														<input type="hidden" name="check_out" value="{{ check_out }}">
 														<input type="hidden" name="adult" value="{{ adult }}">
 														<input type="hidden" name="type" value="Стандарт">
-														<div class="col-md-12 col-lg-4">
-													<button class="btn btn-main btn-block" type="submit">Выбрать этот номер</button>
+														<div class="col-md-13 col-lg-4">
+													<a href="{% url 'booking' %}"><button class="btn btn-main btn-block" type="button">Выбрать другую дату</button></a>
 														</div>
 													</form>
 												</div>
 											</div>
 										</div>
+										{% endif %}
 							</div>
 						</div>
 					</div>

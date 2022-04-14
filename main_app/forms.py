@@ -40,7 +40,7 @@ class SinglePersonalInfoForm(forms.Form):
         'class': 'form-control',
         'autocomplete': 'off',
     }))
-    birth_date = forms.DateField(input_formats=['%d/%m/%Y'], required=True, widget=forms.TextInput(attrs={
+    birth_date = forms.DateField(input_formats=['%d/%m/%Y'], required=True, initial='', widget=forms.TextInput(attrs={
         'class': 'form-control',
         'autocomplete': 'off',
         'id': 'birth',
@@ -59,6 +59,14 @@ class SinglePersonalInfoForm(forms.Form):
         'class': 'form-control',
         'autocomplete': 'off'
     }))
+
+    def clean(self):
+        cleaned_data = super().clean()
+        birth_date = cleaned_data.get('birth_date')
+        if birth_date == '':
+            msg = "Введите дату рождения"
+            self.add_error('birth_date', msg)
+
 
 class DuoPersonalInfoForm(forms.Form):
     first_name = forms.CharField(required=True, widget=forms.TextInput(attrs={
@@ -105,4 +113,14 @@ class DuoPersonalInfoForm(forms.Form):
     email = forms.EmailField(required=True, widget=forms.EmailInput(attrs={
         'class': 'form-control',
         'autocomplete': 'off'
+    }))
+
+
+class OsteopatForm(forms.Form):
+    date = forms.CharField(label='Дата приема', required=True, widget=forms.TextInput(attrs={
+        'class': 'form-control',
+        'id': '1',
+        'autocomplete': 'off',
+        'placeholder': 'Дата приема',
+        'readonly': True,
     }))

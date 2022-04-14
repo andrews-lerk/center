@@ -1,4 +1,5 @@
 from django.db import models
+from django.shortcuts import redirect
 
 
 class MainPhotos(models.Model):
@@ -39,16 +40,6 @@ class Description(models.Model):
         return 'Описание на главной странице'
 
 
-class Dates(models.Model):
-    check_in = models.DateField('Дата заезда')
-    check_out = models.DateField('Дата выезда')
-    room = models.OneToOneField('Rooms', related_name='room_date', on_delete=models.CASCADE, null=True, blank=True)
-
-    class Meta:
-        verbose_name = 'Занятая дата'
-        verbose_name_plural = 'Занятые даты'
-
-
 class Rooms(models.Model):
     TYPES = (
         ('1', 'Комфорт',),
@@ -63,7 +54,7 @@ class Rooms(models.Model):
         verbose_name_plural = 'Комнаты'
 
     def __str__(self):
-        return self.title
+        return f'{self.title} {self.id}'
 
 
 class MainCourse(models.Model):
@@ -80,17 +71,73 @@ class MainCourse(models.Model):
         return 'Описание для полного курса'
 
 
-class Order(models.Model):
-    check_in = models.DateField('Дата заезда')
-    check_out = models.DateField('Дата выезда')
-    room_type = models.CharField('Выбранный тип номера', max_length=10)
-    clients_info = models.TextField('Информация о пациентах')
-    phone = models.CharField(max_length=20)
-    email = models.EmailField()
+class OsteopatDescription(models.Model):
+    photo_1 = models.ImageField(upload_to='osteopat_photos')
+    photo_2 = models.ImageField(upload_to='osteopat_photos')
+    photo_3 = models.ImageField(upload_to='osteopat_photos')
+    description = models.TextField()
 
     class Meta:
-        verbose_name = 'Заявка'
-        verbose_name_plural = 'Заявки'
+        verbose_name = 'Описание посещения остеопата'
+        verbose_name_plural = 'Описание посещения остеопата'
 
     def __str__(self):
-        return f'Заявка для номера: {self.phone}'
+        return 'Описание для посещения остеопата'
+
+
+class DayDescription(models.Model):
+    photo_1 = models.ImageField(upload_to='day_photos')
+    photo_2 = models.ImageField(upload_to='day_photos')
+    photo_3 = models.ImageField(upload_to='day_photos')
+    description = models.TextField()
+
+    class Meta:
+        verbose_name = 'Описание дня здоровья'
+        verbose_name_plural = 'Описание дня здоровья'
+
+    def __str__(self):
+        return 'Описание дня здоровья'
+
+
+class Prices(models.Model):
+    luxe_room_full_health = models.IntegerField(verbose_name='Сутки полного курса лечения (номер "комфорт")',
+                                                default=9300)
+    standart_room_full_health = models.IntegerField(verbose_name='Сутки полного курса лечения (номер "стандарт")',
+                                                    default=8800)
+    health_day = models.IntegerField(verbose_name='День здоровья', default=6800)
+    osteopat = models.IntegerField(verbose_name='Посещение остеопата', default=5000)
+
+    class Meta:
+        verbose_name = 'Прайс лист'
+        verbose_name_plural = 'Прайс лист'
+
+    def __str__(self):
+        return 'Изменить прайс лист для курсов лечения'
+
+
+class Categories(models.Model):
+    title = models.CharField(max_length=63)
+    slug = models.SlugField(max_length=250)
+
+    class Meta:
+        verbose_name = 'Категория для туризма и досуга'
+        verbose_name_plural = 'Категории для туризма и досуга'
+
+
+class Tourism(models.Model):
+    title = models.CharField(verbose_name='Заголовок', max_length=250)
+    text = models.TextField()
+    date = models.DateField(auto_now_add=True)
+    category = models.ForeignKey(Categories, on_delete=models.SET_NULL, null=True, blank=True)
+
+    class Meta:
+        verbose_name = 'Запись для досуга и туризма'
+        verbose_name_plural = 'Записи для досуга и туризма'
+
+    def get_images(self):
+        return self.tourism_record.all()
+
+
+class TourismImage(models.Model):
+    image = models.ImageField(upload_to='tourism_and_dosug')
+    record = models.ForeignKey(Tourism, on_delete=models.CASCADE, related_name='tourism_record')

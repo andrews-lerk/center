@@ -4,12 +4,16 @@
 {% block active_main %}
 	<li ><a href="{% url 'home' %}">Главная</a>
 {% endblock %}
+		{% block active_gallery %}
+									<li class="active"><a href="{% url 'gallery' %}">Галлерея</a>
+									</li>
+									{% endblock %}
         {% block content %}
         		<div class="mg-page-title parallax">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12">
-						<h2>Галлерея</h2>
+						<h2>Досуг и туризм</h2>
 						<p></p>
 					</div>
 				</div>

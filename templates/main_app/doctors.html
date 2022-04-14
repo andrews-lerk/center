@@ -1,0 +1,91 @@
+{% extends 'main_app/base.html' %}
+{% load static %}
+
+{% block active_main %}
+	<li ><a href="{% url 'home' %}">Главная</a>
+{% endblock %}
+		{% block active_docs %}
+	<li class="active"><a href="{% url 'home' %}">Наши специалисты</a>
+{% endblock %}
+        {% block content %}
+        		<div class="mg-page-title parallax">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<h2>Наши специалисты</h2>
+						<p></p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="mg-team">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="mg-sec-title undefined">
+							<h2></h2>
+							<p>Все наши врачи имеют дипломы Европейского стандарта</p>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6 col-lg-3">
+						<div class="mg-team-member">
+							<figure><img class="img-fluid" src="{% static 'assets/images/member1.png' %}" alt=""/></figure>
+							<div class="mg-team-member-overlayer"></div>
+							<div class="mg-team-info">
+								<h3>Joseph Gonzales</h3><strong>Manager</strong>
+								<ul class="mg-team-member-social">
+									<li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+									<li><a href="#"><i class="fab fa-twitter"></i></a></li>
+									<li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6 col-lg-3">
+						<div class="mg-team-member">
+							<figure><img class="img-fluid" src="{% static 'assets/images/member2.png' %}" alt=""/></figure>
+							<div class="mg-team-member-overlayer"></div>
+							<div class="mg-team-info">
+								<h3>Joseph Gonzales</h3><strong>Manager</strong>
+								<ul class="mg-team-member-social">
+									<li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+									<li><a href="#"><i class="fab fa-twitter"></i></a></li>
+									<li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6 col-lg-3">
+						<div class="mg-team-member">
+							<figure><img class="img-fluid" src="{% static 'assets/images/member3.png' %}" alt=""/></figure>
+							<div class="mg-team-member-overlayer"></div>
+							<div class="mg-team-info">
+								<h3>Joseph Gonzales</h3><strong>Manager</strong>
+								<ul class="mg-team-member-social">
+									<li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+									<li><a href="#"><i class="fab fa-twitter"></i></a></li>
+									<li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6 col-lg-3">
+						<div class="mg-team-member">
+							<figure><img class="img-fluid" src="{% static 'assets/images/member4.png' %}" alt=""/></figure>
+							<div class="mg-team-member-overlayer"></div>
+							<div class="mg-team-info">
+								<h3>Joseph Gonzales</h3><strong>Manager</strong>
+								<ul class="mg-team-member-social">
+									<li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+									<li><a href="#"><i class="fab fa-twitter"></i></a></li>
+									<li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+        {% endblock %}

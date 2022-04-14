@@ -9,14 +9,14 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12">
-						<h2>Запись на полный курс лечения</h2>
+						<h2>Запись на прием к остеопату</h2>
 						<p></p>
 					</div>
 				</div>
 			</div>
 		</div>
 		<div class="mg-single-room-price">
-			<div class="mg-srp-inner">₽{{ price.standart_room_full_health }}<span>/Сутки</span></div>
+			<div class="mg-srp-inner">₽{{ price.osteopat }}<span>/Прием</span></div>
 		</div>
 		<div class="mg-page">
 			<div class="container">
@@ -26,14 +26,14 @@
 							<div class="tab-content">
 								<div class="mg-filter">
 								<label>
-										<a class="btn btn-link" href="#course-info">Подробнее о курсе и процедурах <i class="fa fa-angle-double-right"></i></a>
+										<a class="btn btn-link" href="#course-info">Подробнее о приеме <i class="fa fa-angle-double-right"></i></a>
 									</label>
 								</div>
 									<div class="mg-saerch-room">
 										<div class="mg-book-now mt80">
 											<div class="row">
 												<div class="col-lg-3">
-													<h2 class="mg-bn-title">Запишитесь<span class="mg-bn-big">Выберите удобные даты</span></h2>
+													<h2 class="mg-bn-title">Запишитесь<span class="mg-bn-big">Выберите удобную дату</span></h2>
 												</div>
 												<div class="col-lg-9">
 													<div class="mg-bn-forms">
@@ -43,15 +43,9 @@
 																<div class="col-md-6 col-lg-4">
 																	<div class="input-group">
 																		<div class="input-group-addon"><i class="far fa-calendar-alt"></i></div>
-																		{{ form.check_in_out }}
+																		{{ form.date }}
 																	</div>
-																	<span style="color: red">{{ form.check_in_out.errors }}</span>
-																</div>
-																<div class="col-md-6 col-lg-4">
-																	<div class="input-group">
-																			{{ form.adult }}
-																	</div>
-																	<span style="color: red">{{ form.adult.errors }}</span>
+																	<span style="color: red">{{ form.date.errors }}</span>
 																</div>
 																<div class="col-md-12 col-lg-2">
 																	<button class="btn btn-main btn-block" type="submit">Найти</button>
@@ -82,7 +76,7 @@
 						</div>
 					</div>
 					<div class="col-lg-5 mg-room-fecilities">
-						<h2 class="mg-sec-left-title">Удобства курса</h2>
+						<h2 class="mg-sec-left-title">Удобства приема</h2>
 						<div class="row">
 							<div class="col-6">
 								<ul>
@@ -106,7 +100,7 @@
 				<div class="row">
 					<div class="col-md-12">
 						<div class="mg-single-room-txt">
-							<h2 class="mg-sec-left-title">Описание курса</h2>
+							<h2 class="mg-sec-left-title">Описание приема</h2>
 							{{ course.description|safe }}
 							</div>
 					</div>
@@ -126,39 +120,19 @@
 <script>
 
 var min_date = new Date()
-min_date.setDate(min_date.getDate()+2)
+min_date.setDate(min_date.getDate()+1)
 var max_date = new Date()
 max_date.setMonth(max_date.getMonth()+6)
 
 	$('#1').datepicker({
-		range: true,
 		minDate: min_date,
-		toggleSelected: true,
 		maxDate: max_date,
 		clearButton: true,
-		multipleDatesSeparator: ' - ',
 		dateFormat: 'dd/mm/yyyy',
 		onSelect(formattedDate, date, inst){
-			let min = new Date(date);
-			let max = new Date(date);
-			min.setDate(min.getDate()+3);
-			max.setDate(max.getDate()+11);
-			inst.minDate = min;
-			inst.maxDate = max;
-			if (date.length === 0) {
-				this.minDate = min_date;
-				this.maxDate = max_date;
-				inst.minDate = min_date;
-				inst.maxDate = max_date;
-			} else if (date.length >1){
-				this.minDate = min_date;
-				this.maxDate = max_date;
-				inst.minDate = min_date;
-				inst.maxDate = max_date;
-				inst.hide()
+				inst.hide();
 			}
-		}
-	})
+		})
 
 
 </script>

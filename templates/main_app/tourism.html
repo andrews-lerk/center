@@ -1,0 +1,60 @@
+{% extends 'main_app/base.html' %}
+{% load static %}
+
+{% block active_main %}
+	<li ><a href="{% url 'home' %}">Главная</a>
+{% endblock %}
+		{% block active_tourism %}
+									<li class="active"><a href="{% url 'tourism' %}">Досуг и туризм</a>
+									</li>
+									{% endblock %}
+        {% block content %}
+        <div class="mg-page-title parallax">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<h2>Досуг и туризм</h2>
+						<p></p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="mg-blog-list">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-8">
+						<main>
+							{% for record in records %}
+							<article class="mg-post">
+								<header>
+									<h2 class="mg-post-title"><a rel="bookmark">{{ record.title }}</a></h2>
+									<div class="mg-post-meta"><span><a>{{ record.date }}</a></span></div>
+								</header>
+								<div>
+									<p>{{ record.text }}</p>
+								</div>
+								<div class="mg-post-images-slider">
+									{% for img in record.get_images %}
+									<a><img class="img-fluid" src="{{ img.image.url }}" alt=""/></a>
+									{% endfor %}
+								</div>
+							</article>
+							{% endfor %}
+						</main>
+					</div>
+					<div class="col-lg-4">
+						<div class="mg-widget-area">
+							<aside class="mg-widget">
+								<h2 class="mg-widget-title">Категории</h2>
+								<ul>
+									<li><a href="{% url 'tourism' %}">Все</a></li>
+									<li><a href="#">Природа</a></li>
+									<li><a href="#">Туризм</a></li>
+								</ul>
+							</aside>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+        {% endblock %}
