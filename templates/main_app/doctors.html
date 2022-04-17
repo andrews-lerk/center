@@ -29,12 +29,13 @@
 					</div>
 				</div>
 				<div class="row">
+					{% for d in staff %}
 					<div class="col-md-6 col-lg-3">
 						<div class="mg-team-member">
-							<figure><img class="img-fluid" src="{% static 'assets/images/member1.png' %}" alt=""/></figure>
+							<figure><img class="img-fluid" src="{{ d.image.url }}" alt=""/></figure>
 							<div class="mg-team-member-overlayer"></div>
 							<div class="mg-team-info">
-								<h3>Joseph Gonzales</h3><strong>Manager</strong>
+								<h3>{{ d.name }}</h3><strong>{{ d.level }}</strong>
 								<ul class="mg-team-member-social">
 									<li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
 									<li><a href="#"><i class="fab fa-twitter"></i></a></li>
@@ -43,6 +44,7 @@
 							</div>
 						</div>
 					</div>
+					{% endfor %}
 					<div class="col-md-6 col-lg-3">
 						<div class="mg-team-member">
 							<figure><img class="img-fluid" src="{% static 'assets/images/member2.png' %}" alt=""/></figure>

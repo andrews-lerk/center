@@ -11,8 +11,10 @@ def main_page(request):
     photos = MainPhotos.objects.all().first()
     course_photos = CoursesPhoto.objects.all().first()
     description = Description.objects.filter(active=True).first()
+    phone = MainPhone.objects.all().first()
     price = Prices.objects.all().first()
     context = {
+        'phone': phone,
         'price': price,
         'photos': photos,
         'course_photos': course_photos,
@@ -38,8 +40,8 @@ def booking(request):
             standart_price = price.standart_room_full_health * days_count
             busy_rooms = get_busy_rooms(check_in_client=check_in_date, checkout_out_client=check_out_date)
             context_post = {
-                'luxe_price': luxe_price,
-                'standart_price': standart_price,
+                'luxe_price': int(luxe_price)*int(adult),
+                'standart_price': int(standart_price)*int(adult),
                 'days_count': days_count,
                 'check_in': check_in,
                 'check_out': check_out,
@@ -176,6 +178,17 @@ def booking_complete(request):
 def book_osteopat(request):
     price = Prices.objects.all().first()
     form = OsteopatForm()
+    if request.POST:
+        form = OsteopatForm(request.POST)
+        if form.is_valid():
+            date = form.cleaned_data['date']
+            form_ = OsteopatPersonalInfoForm()
+            context_ = {
+                'form': form_,
+                'date': date,
+                'price': price.osteopat,
+            }
+            return render(request, 'main_app/book_osteopat_personal_info.html', context_)
     course = OsteopatDescription.objects.all().first()
     context = {
         'price': price,
@@ -184,9 +197,48 @@ def book_osteopat(request):
     }
     return render(request, 'main_app/book_osteopat.html', context)
 
+
+def book_osteopat_complete(request):
+    date = request.POST['date']
+    price = request.POST['price']
+    form = OsteopatPersonalInfoForm(request.POST)
+    print(form.errors)
+    if form.is_valid():
+        busy_date = Dates.objects.create(
+            course_type='3',
+            course_date=datetime.strptime(date, '%d/%m/%Y')
+        )
+        busy_date.save()
+        order = OrderOsteopat.objects.create(
+            check_in=datetime.strptime(date, '%d/%m/%Y'),
+            clients_info=f'Имя: {form.cleaned_data["first_name"]}, Фамилия: {form.cleaned_data["last_name"]}, '
+                         f'Дата рождения: {form.cleaned_data["birth_date"]}, Город: {form.cleaned_data["city"]}',
+            phone=form.cleaned_data['phone'],
+            email=form.cleaned_data['email'],
+            price=price
+        )
+        order.save()
+        context = {
+            'date': date,
+            'price': price,
+        }
+        return render(request, 'main_app/book_osteopat_complete.html', context)
+
+
 def book_day(request):
     price = Prices.objects.all().first()
     form = OsteopatForm()
+    if request.POST:
+        form = OsteopatForm(request.POST)
+        if form.is_valid():
+            date = form.cleaned_data['date']
+            form_ = OsteopatPersonalInfoForm()
+            context_ = {
+                'form': form_,
+                'date': date,
+                'price': price.health_day,
+            }
+            return render(request, 'main_app/book_day_personal_info.html', context_)
     course = DayDescription.objects.all().first()
     context = {
         'price': price,
@@ -195,12 +247,50 @@ def book_day(request):
     }
     return render(request, 'main_app/book_day.html', context)
 
+
+def book_day_complete(request):
+    date = request.POST['date']
+    price = request.POST['price']
+    form = OsteopatPersonalInfoForm(request.POST)
+    print(form.errors)
+    if form.is_valid():
+        busy_date = Dates.objects.create(
+            course_type='2',
+            course_date=datetime.strptime(date, '%d/%m/%Y')
+        )
+        busy_date.save()
+        order = OrderDay.objects.create(
+            check_in=datetime.strptime(date, '%d/%m/%Y'),
+            clients_info=f'Имя: {form.cleaned_data["first_name"]}, Фамилия: {form.cleaned_data["last_name"]}, '
+                         f'Дата рождения: {form.cleaned_data["birth_date"]}, Город: {form.cleaned_data["city"]}',
+            phone=form.cleaned_data['phone'],
+            email=form.cleaned_data['email'],
+            price=price
+        )
+        order.save()
+        context = {
+            'date': date,
+            'price': price,
+        }
+        return render(request, 'main_app/book_day_complete.html', context)
+
+
 def view_gallery(request):
-    return render(request, 'main_app/gallery.html')
+    photos = Gallery.objects.all()
+    categories = GalleryCategory.objects.all()
+    context = {
+        'photos': photos,
+        'categories': categories
+    }
+    return render(request, 'main_app/gallery.html', context)
 
 
 def view_doctors(request):
-    return render(request, 'main_app/doctors.html')
+    staff = Staff.objects.all()
+    context = {
+        'staff': staff,
+    }
+    return render(request, 'main_app/doctors.html', context)
 
 
 def view_tourism(request):

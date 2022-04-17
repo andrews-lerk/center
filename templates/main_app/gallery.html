@@ -13,7 +13,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12">
-						<h2>Досуг и туризм</h2>
+						<h2>Галерея</h2>
 						<p></p>
 					</div>
 				</div>
@@ -29,32 +29,19 @@
 									<label class="btn btn-dark btn-main">
 										<input type="radio" name="filter" value="all" checked="checked">Все
 									</label>
+									{% for category in categories %}
 									<label class="btn btn-dark">
-										<input type="radio" name="filter" value="classic">Грязи
+										<input type="radio" name="filter" value="{{ category.category }}">{{ category.category }}
 									</label>
-									<label class="btn btn-dark">
-										<input type="radio" name="filter" value="deluxe">SPA
-									</label>
-									<label class="btn btn-dark">
-										<input type="radio" name="filter" value="royal">Массаж
-									</label>
+									{% endfor %}
 								</fieldset>
 							</form>
 						</div>
 						<div class="row" id="mg-grid">
-							<figure class="col-lg-4 mg-gallery-item" data-groups="[&quot;classic&quot;]"><a href="{% static 'assets/images/room-1.png' %}" data-lightbox-gallery="rooms"><img class="img-fluid" src="{% static 'assets/images/room-1.png' %}" alt=""/><span class="mg-gallery-overlayer"><i class="fa fa-search-plus"></i></span></a></figure>
-							<figure class="col-lg-4 mg-gallery-item" data-groups="[&quot;deluxe&quot;]"><a href="{% static 'assets/images/room-1.png' %}" data-lightbox-gallery="rooms"><img class="img-fluid" src="{% static 'assets/images/room-1.png' %}" alt=""/><span class="mg-gallery-overlayer"><i class="fa fa-search-plus"></i></span></a></figure>
-							<figure class="col-lg-4 mg-gallery-item" data-groups="[&quot;royal&quot;]"><a href="{% static 'assets/images/room-1.png' %}" data-lightbox-gallery="rooms"><img class="img-fluid" src="{% static 'assets/images/room-1.png' %}" alt=""/><span class="mg-gallery-overlayer"><i class="fa fa-search-plus"></i></span></a></figure>
-							<figure class="col-lg-4 mg-gallery-item" data-groups="[&quot;classic&quot;]"><a href="{% static 'assets/images/room-1.png' %}" data-lightbox-gallery="rooms"><img class="img-fluid" src="{% static 'assets/images/room-1.png' %}" alt=""/><span class="mg-gallery-overlayer"><i class="fa fa-search-plus"></i></span></a></figure>
-							<figure class="col-lg-4 mg-gallery-item" data-groups="[&quot;deluxe&quot;]"><a href="{% static 'assets/images/room-1.png' %}" data-lightbox-gallery="rooms"><img class="img-fluid" src="{% static 'assets/images/room-1.png' %}" alt=""/><span class="mg-gallery-overlayer"><i class="fa fa-search-plus"></i></span></a></figure>
-							<figure class="col-lg-4 mg-gallery-item" data-groups="[&quot;classic&quot;]"><a href="{% static 'assets/images/room-1.png' %}" data-lightbox-gallery="rooms"><img class="img-fluid" src="{% static 'assets/images/room-1.png' %}" alt=""/><span class="mg-gallery-overlayer"><i class="fa fa-search-plus"></i></span></a></figure>
-							<figure class="col-lg-4 mg-gallery-item" data-groups="[&quot;royal&quot;]"><a href="{% static 'assets/images/room-1.png' %}" data-lightbox-gallery="rooms"><img class="img-fluid" src="{% static 'assets/images/room-1.png' %}" alt=""/><span class="mg-gallery-overlayer"><i class="fa fa-search-plus"></i></span></a></figure>
-							<figure class="col-lg-4 mg-gallery-item" data-groups="[&quot;royal&quot;]"><a href="{% static 'assets/images/room-1.png' %}" data-lightbox-gallery="rooms"><img class="img-fluid" src="{% static 'assets/images/room-1.png' %}" alt=""/><span class="mg-gallery-overlayer"><i class="fa fa-search-plus"></i></span></a></figure>
-							<figure class="col-lg-4 mg-gallery-item" data-groups="[&quot;classic&quot;]"><a href="{% static 'assets/images/room-1.png' %}" data-lightbox-gallery="rooms"><img class="img-fluid" src="{% static 'assets/images/room-1.png' %}" alt=""/><span class="mg-gallery-overlayer"><i class="fa fa-search-plus"></i></span></a></figure>
-							<figure class="col-lg-4 mg-gallery-item" data-groups="[&quot;royal&quot;]"><a href="{% static 'assets/images/room-1.png' %}" data-lightbox-gallery="rooms"><img class="img-fluid" src="{% static 'assets/images/room-1.png' %}" alt=""/><span class="mg-gallery-overlayer"><i class="fa fa-search-plus"></i></span></a></figure>
-							<figure class="col-lg-4 mg-gallery-item" data-groups="[&quot;deluxe&quot;]"><a href="{% static 'assets/images/room-1.png' %}" data-lightbox-gallery="rooms"><img class="img-fluid" src="{% static 'assets/images/room-1.png' %}" alt=""/><span class="mg-gallery-overlayer"><i class="fa fa-search-plus"></i></span></a></figure>
-							<figure class="col-lg-4 mg-gallery-item" data-groups="[&quot;classic&quot;]"><a href="{% static 'assets/images/room-1.png' %}" data-lightbox-gallery="rooms"><img class="img-fluid" src="{% static 'assets/images/room-1.png' %}" alt=""/><span class="mg-gallery-overlayer"><i class="fa fa-search-plus"></i></span></a></figure>
-						</div>
+							{% for photo in photos %}
+							<figure class="col-lg-4 mg-gallery-item" data-groups="[&quot;{{ photo.category.category }}&quot;]"><a href="{{ photo.image.url }}" data-lightbox-gallery="rooms"><img class="img-fluid" src="{{ photo.image.url }}" alt=""/><span class="mg-gallery-overlayer"><i class="fa fa-search-plus"></i></span></a></figure>
+							{% endfor %}
+							</div>
 					</div>
 				</div>
 			</div>

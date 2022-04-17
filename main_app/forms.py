@@ -124,3 +124,77 @@ class OsteopatForm(forms.Form):
         'placeholder': 'Дата приема',
         'readonly': True,
     }))
+
+
+class OsteopatPersonalInfoForm(forms.Form):
+    first_name = forms.CharField(required=True, widget=forms.TextInput(attrs={
+        'class': 'form-control',
+        'autocomplete': 'off',
+    }))
+    last_name = forms.CharField(required=True, widget=forms.TextInput(attrs={
+        'class': 'form-control',
+        'autocomplete': 'off',
+    }))
+    birth_date = forms.DateField(input_formats=['%d/%m/%Y'], required=True, initial='', widget=forms.TextInput(attrs={
+        'class': 'form-control',
+        'autocomplete': 'off',
+        'id': 'birth',
+        'readonly': True,
+    }))
+    city = forms.CharField(required=True, widget=forms.TextInput(attrs={
+        'class': 'form-control',
+        'autocomplete': 'off',
+    }))
+    phone = forms.CharField(required=True, widget=forms.TextInput(attrs={
+        'class': 'form-control',
+        'autocomplete': 'off',
+        'id': 'phone'
+    }))
+    email = forms.EmailField(required=True, widget=forms.EmailInput(attrs={
+        'class': 'form-control',
+        'autocomplete': 'off'
+    }))
+
+    def clean(self):
+        cleaned_data = super().clean()
+        birth_date = cleaned_data.get('birth_date')
+        if birth_date == '':
+            msg = "Введите дату рождения"
+            self.add_error('birth_date', msg)
+
+
+class DayPersonalInfoForm(forms.Form):
+    first_name = forms.CharField(required=True, widget=forms.TextInput(attrs={
+        'class': 'form-control',
+        'autocomplete': 'off',
+    }))
+    last_name = forms.CharField(required=True, widget=forms.TextInput(attrs={
+        'class': 'form-control',
+        'autocomplete': 'off',
+    }))
+    birth_date = forms.DateField(input_formats=['%d/%m/%Y'], required=True, initial='', widget=forms.TextInput(attrs={
+        'class': 'form-control',
+        'autocomplete': 'off',
+        'id': 'birth',
+        'readonly': True,
+    }))
+    city = forms.CharField(required=True, widget=forms.TextInput(attrs={
+        'class': 'form-control',
+        'autocomplete': 'off',
+    }))
+    phone = forms.CharField(required=True, widget=forms.TextInput(attrs={
+        'class': 'form-control',
+        'autocomplete': 'off',
+        'id': 'phone'
+    }))
+    email = forms.EmailField(required=True, widget=forms.EmailInput(attrs={
+        'class': 'form-control',
+        'autocomplete': 'off'
+    }))
+
+    def clean(self):
+        cleaned_data = super().clean()
+        birth_date = cleaned_data.get('birth_date')
+        if birth_date == '':
+            msg = "Введите дату рождения"
+            self.add_error('birth_date', msg)

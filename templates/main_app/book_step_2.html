@@ -38,26 +38,30 @@
 											<div class="row">
 												<div class="col-sm-5"><a href="#"><img class="img-fluid" src="{% static 'assets/images/room-1.png' %}" alt=""/></a></div>
 												<div class="col-sm-7">
-													<h3 class="mg-avl-room-title"><a href="#">Комфорт</a><span>₽{{ luxe_price }}/Весь курс</span></h3>
+													<h3 class="mg-avl-room-title"><a href="#">Комфорт</a><span>₽{{ luxe_price }}/Весь курс за {{ adult }} {% if adult == '2' %}человек{% else %}человека{% endif %}</span></h3>
 													<p style="color: green;">Номеров свободно на выбранные даты: {{ luxe_free }} из {{ luxe_count }}</p>
 													<div class="row mg-room-fecilities">
 														<div class="col-sm-6">
 															<ul>
+																<li><i class="fp-ht-hotel"></i> Большой номер
+																</li>
 																<li><i class="fp-ht-bed"></i> 2-x спальная кровать
 																</li>
-																<li><i class="fp-ht-food"></i> Завтрак в номер
+																<li><i class="fp-ht-briefcase"></i> Сейф
 																</li>
-																<li><i class="far fa-sun"></i> Кондиционер
+																<li><i class="fp-ht-toothpaste"></i> Принадлежности для гигиены
 																</li>
 															</ul>
 														</div>
 														<div class="col-sm-6">
 															<ul>
-																<li><i class="fp-ht-dumbbell"></i> GYM fecility
-																</li>
 																<li><i class="fp-ht-tv"></i> TV LCD
 																</li>
+																<li><i class="far fa-sun"></i> Холодильник и чайник
+																</li>
 																<li><i class="fp-ht-computer"></i> Бесплатный Wi-fi
+																</li>
+																<li><i class="fp-ht-towel"></i> Полотенца, халаты, тапочки
 																</li>
 															</ul>
 														</div>
@@ -83,26 +87,26 @@
 											<div class="row">
 												<div class="col-sm-5"><a href="#"><img class="img-fluid" src="{% static 'assets/images/room-1.png' %}" alt=""/></a></div>
 												<div class="col-sm-7">
-													<h3 class="mg-avl-room-title"><a href="#">Стандарт</a><span>₽{{ standart_price }}/Весь курс</span></h3>
+													<h3 class="mg-avl-room-title"><a href="#">Стандарт</a><span>₽{{ standart_price }}/Весь курс за {{ adult }} {% if adult == '2' %}человек{% else %}человека{% endif %}</span></h3>
 													<p style="color: green;">Номеров свободно на выбранные даты: {{ standart_free }} из {{ standart_count }}</p>
 													<div class="row mg-room-fecilities">
 														<div class="col-sm-6">
 															<ul>
 																<li><i class="fp-ht-bed"></i> 2-x спальная кровать
 																</li>
-																<li><i class="fp-ht-food"></i> Завтрак в номер
+																<li><i class="fp-ht-briefcase"></i> Сейф
 																</li>
-																<li><i class="far fa-sun"></i> Кондиционер
+																<li><i class="fp-ht-toothpaste"></i> Принадлежности для гигиены
 																</li>
 															</ul>
 														</div>
 														<div class="col-sm-6">
 															<ul>
-																<li><i class="fp-ht-dumbbell"></i> GYM fecility
-																</li>
 																<li><i class="fp-ht-tv"></i> TV LCD
 																</li>
 																<li><i class="fp-ht-computer"></i> Бесплатный Wi-fi
+																</li>
+																<li><i class="fp-ht-towel"></i> Полотенца, халаты, тапочки
 																</li>
 															</ul>
 														</div>
@@ -127,26 +131,30 @@
 											<div class="row">
 												<div class="col-sm-5"><a href="#"><img class="img-fluid" src="{% static 'assets/images/room-1.png' %}" alt=""/></a></div>
 												<div class="col-sm-7">
-													<h3 class="mg-avl-room-title"><a href="#">Комфорт</a><span>₽{{ luxe_price }}/Весь курс</span></h3>
+													<h3 class="mg-avl-room-title"><a href="#">Комфорт</a><span>₽{{ luxe_price }}/Весь курс за {{ adult }} {% if adult == '2' %}человек{% else %}человека{% endif %}</span></h3>
 													<p style="color: orange;">К сожалению на выбранные даты свободных номеров нет</p>
 													<div class="row mg-room-fecilities">
 														<div class="col-sm-6">
 															<ul>
+																<li><i class="fp-ht-hotel"></i> Большой номер
+																</li>
 																<li><i class="fp-ht-bed"></i> 2-x спальная кровать
 																</li>
-																<li><i class="fp-ht-food"></i> Завтрак в номер
+																<li><i class="fp-ht-briefcase"></i> Сейф
 																</li>
-																<li><i class="far fa-sun"></i> Кондиционер
+																<li><i class="fp-ht-toothpaste"></i> Принадлежности для гигиены
 																</li>
 															</ul>
 														</div>
 														<div class="col-sm-6">
 															<ul>
-																<li><i class="fp-ht-dumbbell"></i> GYM fecility
-																</li>
 																<li><i class="fp-ht-tv"></i> TV LCD
 																</li>
+																<li><i class="far fa-sun"></i> Холодильник и чайник
+																</li>
 																<li><i class="fp-ht-computer"></i> Бесплатный Wi-fi
+																</li>
+																<li><i class="fp-ht-towel"></i> Полотенца, халаты, тапочки
 																</li>
 															</ul>
 														</div>
@@ -170,26 +178,26 @@
 											<div class="row">
 												<div class="col-sm-5"><a href="#"><img class="img-fluid" src="{% static 'assets/images/room-1.png' %}" alt=""/></a></div>
 												<div class="col-sm-7">
-													<h3 class="mg-avl-room-title"><a href="#">Стандарт</a><span>₽{{ standart_price }}/Весь курс</span></h3>
+													<h3 class="mg-avl-room-title"><a href="#">Стандарт</a><span>₽{{ standart_price }}/Весь курс за {{ adult }} {% if adult == '2' %}человек{% else %}человека{% endif %}</span></h3>
 													<p style="color: orange;">К сожалению на выбранные даты свободных номеров нет</p>
 													<div class="row mg-room-fecilities">
 														<div class="col-sm-6">
 															<ul>
 																<li><i class="fp-ht-bed"></i> 2-x спальная кровать
 																</li>
-																<li><i class="fp-ht-food"></i> Завтрак в номер
+																<li><i class="fp-ht-briefcase"></i> Сейф
 																</li>
-																<li><i class="far fa-sun"></i> Кондиционер
+																<li><i class="fp-ht-toothpaste"></i> Принадлежности для гигиены
 																</li>
 															</ul>
 														</div>
 														<div class="col-sm-6">
 															<ul>
-																<li><i class="fp-ht-dumbbell"></i> GYM fecility
-																</li>
 																<li><i class="fp-ht-tv"></i> TV LCD
 																</li>
 																<li><i class="fp-ht-computer"></i> Бесплатный Wi-fi
+																</li>
+																<li><i class="fp-ht-towel"></i> Полотенца, халаты, тапочки
 																</li>
 															</ul>
 														</div>

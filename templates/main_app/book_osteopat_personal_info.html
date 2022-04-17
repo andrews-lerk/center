@@ -1,0 +1,127 @@
+{% extends 'main_app/base.html' %}
+{% load static %}
+
+{% block active_main %}
+	<li ><a href="{% url 'home' %}">Главная</a>
+{% endblock %}
+		{% block content %}
+		<div class="mg-page-title parallax">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<h2>Персональные данные</h2>
+						<p></p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="mg-page">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="mg-booking-form">
+							<div class="tab-content">
+									<div class="row">
+										<div class="col-lg-8">
+											<div class="mg-book-form-personal">
+												<form method="post" action="{% url 'osteopat-complete' %}">
+													{% csrf_token %}
+													    <input type="hidden" name="price" value="{{ price }}">
+														<input type="hidden" name="date" value="{{ date }}">
+												<h2 class="mg-sec-left-title">Персональные данные</h2>
+												<div class="row pb40">
+													<div class="col-lg-6">
+														<div class="mg-book-form-input">
+															<label>Имя</label>
+															{{ form.first_name }}
+														</div>
+														<div class="mg-book-form-input">
+															<label>Дата рождения</label>
+															{{ form.birth_date }}
+															{{ form.birth_date.errors }}
+														</div>
+													</div>
+													<div class="col-lg-6">
+														<div class="mg-book-form-input">
+															<label>Фамилия</label>
+															{{ form.last_name }}
+														</div>
+														<div class="mg-book-form-input">
+															<label>Город</label>
+															{{ form.city }}
+														</div>
+													</div>
+												</div>
+												<h2 class="mg-sec-left-title">Данные для связи</h2>
+												<div class="row">
+													<div class="col-lg-6">
+														<div class="mg-book-form-input">
+															<label>Телефон</label>
+															{{ form.phone }}
+														</div>
+													</div>
+													<div class="col-lg-6">
+														<div class="mg-book-form-input">
+															<label>Почта</label>
+															{{ form.email }}
+														</div>
+													</div>
+												</div>
+													<button class="btn btn-main" type="submit">Отправить заявку</button>
+												</form>
+											</div>
+										</div>
+										<div class="col-lg-4">
+											<div class="mg-cart-container">
+												<aside class="mg-widget mt50" id="mg-room-cart">
+													<h2 class="mg-widget-title">Детали бронирования</h2>
+													<h4 class="mg-widget-title">Прием к остеопату</h4>
+													<div class="mg-widget-cart">
+														<div class="mg-widget-cart-row"><strong>Дата приема:</strong><span>{{ date }}</span></div>
+														<div class="mg-cart-total"><strong>Итого:</strong><span> ₽{{ price }}</span></div>
+													</div>
+												</aside>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="{% static 'phonesmask/jquery.maskedinput.min.js' %}"></script>
+<script src="{% static 'datepicker/js/datepicker.min.js' %}"></script>
+<link rel="stylesheet" href="{% static 'datepicker/css/datepicker.min.css' %}">
+<script>
+$("#phone").mask("+9 (999) 99-99-999", {placeholder: "+_ (___) __-__-___" });
+
+
+var max_date = new Date()
+max_date.setFullYear(max_date.getFullYear()-18)
+
+	$('#birth').datepicker({
+		toggleSelected: true,
+		maxDate: max_date,
+		clearButton: true,
+		dateFormat: 'dd/mm/yyyy',
+		view: 'years',
+		showOtherYears: true,
+		onSelect(formattedDate, date, inst){
+				inst.hide()
+			}
+	})
+$('#birth2').datepicker({
+		toggleSelected: true,
+		maxDate: max_date,
+		clearButton: true,
+		dateFormat: 'dd/mm/yyyy',
+		view: 'years',
+		showOtherYears: true,
+		onSelect(formattedDate, date, inst){
+				inst.hide()
+			}
+	})
+</script>
+{% endblock content %}

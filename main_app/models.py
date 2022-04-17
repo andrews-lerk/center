@@ -141,3 +141,50 @@ class Tourism(models.Model):
 class TourismImage(models.Model):
     image = models.ImageField(upload_to='tourism_and_dosug')
     record = models.ForeignKey(Tourism, on_delete=models.CASCADE, related_name='tourism_record')
+
+
+class GalleryCategory(models.Model):
+    category = models.CharField('Категория', max_length=255)
+
+    class Meta:
+        verbose_name = 'Категория для галерии'
+        verbose_name_plural = 'Категории для галерии'
+
+    def __str__(self):
+        return self.category
+
+
+class Gallery(models.Model):
+    image = models.ImageField(upload_to='gallery')
+    category = models.ForeignKey(GalleryCategory, on_delete=models.SET_NULL, blank=True, null=True)
+
+    class Meta:
+        verbose_name = 'Галерея'
+        verbose_name_plural = 'Галерея'
+
+    def __str__(self):
+        return self.image.url
+
+
+class MainPhone(models.Model):
+    phone = models.CharField('Телефон на главной', max_length=19)
+
+    class Meta:
+        verbose_name = 'Телефон на главной'
+        verbose_name_plural = 'Телефон на главной'
+
+    def __str__(self):
+        return self.phone
+
+
+class Staff(models.Model):
+    name = models.CharField('Имя и фамилия', max_length=255)
+    image = models.ImageField('Фото', upload_to='staff')
+    level = models.CharField('Должность', max_length=255)
+
+    class Meta:
+        verbose_name = 'Специалист'
+        verbose_name_plural = 'Специалисты'
+
+    def __str__(self):
+        return self.name

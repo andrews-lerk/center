@@ -30,6 +30,30 @@ class DescriptionMainCourseAdminForm(forms.ModelForm):
         fields = '__all__'
 
 
+class DescriptionDayAdminForm(forms.ModelForm):
+    description = forms.CharField(widget=CKEditorUploadingWidget())
+
+    class Meta:
+        model = DayDescription
+        fields = '__all__'
+
+
+class DescriptionOsteopatAdminForm(forms.ModelForm):
+    description = forms.CharField(widget=CKEditorUploadingWidget())
+
+    class Meta:
+        model = OsteopatDescription
+        fields = '__all__'
+
+
+class DescriptionTourismAdminForm(forms.ModelForm):
+    text = forms.CharField(widget=CKEditorUploadingWidget())
+
+    class Meta:
+        model = Tourism
+        fields = '__all__'
+
+
 @admin.register(Description)
 class DescriptionAdmin(admin.ModelAdmin):
     list_display = ('edit', 'active',)
@@ -58,20 +82,28 @@ class MainCourseAdmin(admin.ModelAdmin):
 @admin.register(Tourism)
 class TourismAdmin(admin.ModelAdmin):
     inlines = [ImageInline, ]
+    form = DescriptionTourismAdminForm
+
 
 @admin.register(Categories)
 class CategoriesAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('title',)}
 
+
 @admin.register(OsteopatDescription)
 class CategoriesAdmin(admin.ModelAdmin):
-    pass
+    form = DescriptionOsteopatAdminForm
+
 
 @admin.register(DayDescription)
 class CategoriesAdmin(admin.ModelAdmin):
-    pass
+    form = DescriptionDayAdminForm
 
 
 admin.site.register(MainPhotos)
+admin.site.register(GalleryCategory)
+admin.site.register(Gallery)
+admin.site.register(MainPhone)
+admin.site.register(Staff)
 admin.site.register(CoursesPhoto)
 admin.site.register(Prices)
