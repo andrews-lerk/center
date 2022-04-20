@@ -31,7 +31,7 @@
 									<div class="mg-post-meta"><span><a>{{ record.date }}</a></span></div>
 								</header>
 								<div>
-									<p>{{ record.text }}</p>
+									{{ record.text|safe }}
 								</div>
 								<div class="mg-post-images-slider">
 									{% for img in record.get_images %}
