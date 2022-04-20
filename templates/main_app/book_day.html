@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block active_main %}
-	<li ><a href="{% url 'home' %}">Главная</a>
+<li ><a href="{% url 'home' %}">Главная</a></li>
 {% endblock %}
 		{% block content %}
 		<div class="mg-page-title parallax">
@@ -76,12 +76,11 @@
 						</div>
 					</div>
 					<div class="col-lg-5 mg-room-fecilities">
-						<h2 class="mg-sec-left-title">Удобства приема</h2>
+						<h2 class="mg-sec-left-title">Удобства дня</h2>
 						<div class="row">
 							<div class="col-6">
 								<ul>
 									<li><i class="far fa-sun"></i>Индивидуальная программа</li>
-									<li><i class="fp-ht-swimmingpool"></i>Бассейн и SPA</li>
 									<li><i class="fp-ht-sunumbrella"></i>Зона отдыха</li>
 									<li><i class="fp-ht-parking"></i>Бесплатная парковка</li>
 								</ul>
@@ -99,7 +98,7 @@
 				<div class="row">
 					<div class="col-md-12">
 						<div class="mg-single-room-txt">
-							<h2 class="mg-sec-left-title">Описание приема</h2>
+							<h2 class="mg-sec-left-title">Описание дня</h2>
 							{{ course.description|safe }}
 							</div>
 					</div>

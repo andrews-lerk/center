@@ -61,36 +61,74 @@
 					<div class="col-md-12">
 						<div class="mg-sec-title undefined">
 							<h2>Наши Курсы оздоровления</h2>
-							<p>Вы можете подобрать подходящую для вас программу лечения</p>
+							<p>Вы можете подобрать подходящую для вас программу оздоровления</p>
 						</div>
 						<div class="row">
-							<div class="col-md-4">
-								<figure class="mg-room "><img class="img-fluid" src="{{ course_photos.left.url }}" alt="img11"/>
-									<figcaption>
-										<h2>Разовое посещение остеопата</h2>
-										<div class="mg-room-price">от ₽{{ price.osteopat }}<sup>.00/сеанс</sup></div>
-										<p>Почувствуйте эффект проведя всего 2 часа со специалистом </p><a class="btn btn-main" href="{% url 'book-osteopat' %}">Записаться</a>
-									</figcaption>
-								</figure>
+							<div class="mg-avl-room">
+							<div class="row">
+								<div class="col-sm-5"><a href="#"><img class="img-fluid" src="{{ course_photos.middle.url }}" alt=""/></a></div>
+								<div class="col-sm-7">
+									<h3 class="mg-avl-room-title"><a href="{% url 'booking' %}">Полный курс оздоровления</a></h3>
+									<h4><span>от ₽{{ price.standart_room_full_health }}<sup>.00</sup>/Сутки</span></h4>
+									<p>Пройдите комплекс оздоровительных процедур</p>
+									<div class="row mg-room-fecilities">
+									</div><a class="btn btn-dark" href="{% url 'booking' %}">Подробнее <i class="fa fa-angle-double-right"></i></a>
+								</div>
 							</div>
-							<div class="col-md-4">
-								<figure class="mg-room "><img class="img-fluid" src="{{ course_photos.middle.url }}" alt="img11"/>
-									<figcaption>
-										<h2>Полный курс оздоровления</h2>
-										<div class="mg-room-price">от ₽{{ price.standart_room_full_health }}<sup>.00/сутки</sup></div>
-										<p>Пройдите все процедурные лечения</p><a class="btn btn-main" href="{% url 'booking' %}">Записаться</a>
-									</figcaption>
-								</figure>
+						</div>
+							<p></p>
+							<div class="mg-avl-room">
+							<div class="row">
+								<div class="col-sm-5"><a href="#"><img class="img-fluid" src="{{ course_photos.left.url }}" alt=""/></a></div>
+								<div class="col-sm-7">
+									<h3 class="mg-avl-room-title"><a href="{% url 'book-day' %}">День здоровья</a></h3>
+									<h4><span>от ₽{{ price.health_day }}<sup>.00</sup>/День</span></h4>
+									<p>Пройдите курс оздоровления за 1 день</p>
+									<div class="row mg-room-fecilities">
+									</div><a class="btn btn-dark" href="{% url 'book-day' %}">Подробнее <i class="fa fa-angle-double-right"></i></a>
+								</div>
 							</div>
-							<div class="col-md-4">
-								<figure class="mg-room "><img class="img-fluid" src="{{ course_photos.right.url }}" alt="img11"/>
-									<figcaption>
-										<h2>"День здоровья"</h2>
-										<div class="mg-room-price">от ₽{{ price.health_day }}<sup>.00/день</sup></div>
-										<p>Пройдите укороченный курс оздоровения, всего в 1 день</p><a class="btn btn-main" href="{% url 'book-day' %}">Записаться</a>
-									</figcaption>
-								</figure>
+						</div>
+							<p></p>
+							<div class="mg-avl-room">
+							<div class="row">
+								<div class="col-sm-5"><a href="#"><img class="img-fluid" src="{{ course_photos.right.url }}" alt=""/></a></div>
+								<div class="col-sm-7">
+									<h3 class="mg-avl-room-title"><a href="{% url 'book-osteopat' %}">Прием врача-остеопата</a></h3>
+									<h4><span>от ₽{{ price.osteopat }}<sup>.00</sup>/Прием</span></h4>
+									<p></p>
+									<div class="row mg-room-fecilities">
+									</div><a class="btn btn-dark" href="{% url 'book-osteopat' %}">Подробнее <i class="fa fa-angle-double-right"></i></a>
+								</div>
 							</div>
+						</div>
+<!--							<div class="col-md-4">-->
+<!--								<figure class="mg-room "><img class="img-fluid" src="{{ course_photos.left.url }}" alt="img11"/>-->
+<!--									<figcaption>-->
+<!--										<h2>Разовое посещение остеопата</h2>-->
+<!--										<div class="mg-room-price">от ₽{{ price.osteopat }}<sup>.00/сеанс</sup></div>-->
+<!--										<p>Почувствуйте эффект проведя всего 2 часа со специалистом </p><a class="btn btn-main" href="{% url 'book-osteopat' %}">Записаться</a>-->
+<!--									</figcaption>-->
+<!--								</figure>-->
+<!--							</div>-->
+<!--							<div class="col-md-4">-->
+<!--								<figure class="mg-room "><img class="img-fluid" src="{{ course_photos.middle.url }}" alt="img11"/>-->
+<!--									<figcaption>-->
+<!--										<h2>Полный курс оздоровления</h2>-->
+<!--										<div class="mg-room-price">от ₽{{ price.standart_room_full_health }}<sup>.00/сутки</sup></div>-->
+<!--										<p>Пройдите все процедурные лечения</p><a class="btn btn-main" href="{% url 'booking' %}">Записаться</a>-->
+<!--									</figcaption>-->
+<!--								</figure>-->
+<!--							</div>-->
+<!--							<div class="col-md-4">-->
+<!--								<figure class="mg-room "><img class="img-fluid" src="{{ course_photos.right.url }}" alt="img11"/>-->
+<!--									<figcaption>-->
+<!--										<h2>"День здоровья"</h2>-->
+<!--										<div class="mg-room-price">от ₽{{ price.health_day }}<sup>.00/день</sup></div>-->
+<!--										<p>Пройдите укороченный курс оздоровения, всего в 1 день</p><a class="btn btn-main" href="{% url 'book-day' %}">Записаться</a>-->
+<!--									</figcaption>-->
+<!--								</figure>-->
+<!--							</div>-->
 						</div>
 					</div>
 				</div>
