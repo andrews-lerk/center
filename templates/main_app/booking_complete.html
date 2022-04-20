@@ -32,7 +32,12 @@
 											<div class="mg-widget-cart">
 												<div class="row">
 													<div class="col-md-6">
-														<div class="mg-cart-room"><img class="img-fluid" src="{% static 'assets/images/room-1.png' %}" alt="Delux Room">
+														<div class="mg-cart-room">
+															{% if type == 'Комфорт' %}
+															<img class="img-fluid" src="{{ rooms_images.luxe.url }}" alt="Delux Room">
+															{% else %}
+															<img class="img-fluid" src="{{ rooms_images.standart.url }}" alt="Delux Room">
+															{% endif %}
 															<h3>Номер: {{ type }}</h3>
 															<p></p>
 														</div>

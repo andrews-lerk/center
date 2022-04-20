@@ -36,7 +36,7 @@
 										{% if luxe_free > 0 %}
 										<div class="mg-avl-room">
 											<div class="row">
-												<div class="col-sm-5"><a href="#"><img class="img-fluid" src="{% static 'assets/images/room-1.png' %}" alt=""/></a></div>
+												<div class="col-sm-5"><a href="#"><img class="img-fluid" src="{{ luxe_img }}" alt=""/></a></div>
 												<div class="col-sm-7">
 													<h3 class="mg-avl-room-title"><a href="#">Комфорт</a><span>₽{{ luxe_price }}/Весь курс за {{ adult }} {% if adult == '2' %}человек{% else %}человека{% endif %}</span></h3>
 													<p style="color: green;">Номеров свободно на выбранные даты: {{ luxe_free }} из {{ luxe_count }}</p>
@@ -87,7 +87,7 @@
 										{% if standart_free > 0 %}
 										<div class="mg-avl-room">
 											<div class="row">
-												<div class="col-sm-5"><a href="#"><img class="img-fluid" src="{% static 'assets/images/room-1.png' %}" alt=""/></a></div>
+												<div class="col-sm-5"><a href="#"><img class="img-fluid" src="{{ standart_img }}" alt=""/></a></div>
 												<div class="col-sm-7">
 													<h3 class="mg-avl-room-title"><a href="#">Стандарт</a><span>₽{{ standart_price }}/Весь курс за {{ adult }} {% if adult == '2' %}человек{% else %}человека{% endif %}</span></h3>
 													<p style="color: green;">Номеров свободно на выбранные даты: {{ standart_free }} из {{ standart_count }}</p>
@@ -133,7 +133,7 @@
 										{% if luxe_free <= 0 %}
 										<div class="mg-avl-room">
 											<div class="row">
-												<div class="col-sm-5"><a href="#"><img class="img-fluid" src="{% static 'assets/images/room-1.png' %}" alt=""/></a></div>
+												<div class="col-sm-5"><a href="#"><img class="img-fluid" src="{{ luxe_img }}" alt=""/></a></div>
 												<div class="col-sm-7">
 													<h3 class="mg-avl-room-title"><a href="#">Комфорт</a><span>₽{{ luxe_price }}/Весь курс за {{ adult }} {% if adult == '2' %}человек{% else %}человека{% endif %}</span></h3>
 													<p style="color: orange;">К сожалению на выбранные даты свободных номеров нет</p>
@@ -182,7 +182,7 @@
 										{% if standart_free <= 0 %}
 										<div class="mg-avl-room">
 											<div class="row">
-												<div class="col-sm-5"><a href="#"><img class="img-fluid" src="{% static 'assets/images/room-1.png' %}" alt=""/></a></div>
+												<div class="col-sm-5"><a href="#"><img class="img-fluid" src="{{ standart_img }}" alt=""/></a></div>
 												<div class="col-sm-7">
 													<h3 class="mg-avl-room-title"><a href="#">Стандарт</a><span>₽{{ standart_price }}/Весь курс за {{ adult }} {% if adult == '2' %}человек{% else %}человека{% endif %}</span></h3>
 													<p style="color: orange;">К сожалению на выбранные даты свободных номеров нет</p>

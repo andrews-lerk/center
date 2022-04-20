@@ -39,7 +39,10 @@ def booking(request):
             luxe_price = price.luxe_room_full_health * days_count
             standart_price = price.standart_room_full_health * days_count
             busy_rooms = get_busy_rooms(check_in_client=check_in_date, checkout_out_client=check_out_date)
+            rooms_images = NumberImages.objects.all().first()
             context_post = {
+                'luxe_img': rooms_images.luxe.url,
+                'standart_img': rooms_images.standart.url,
                 'luxe_price': int(luxe_price)*int(adult),
                 'standart_price': int(standart_price)*int(adult),
                 'days_count': days_count,
@@ -68,11 +71,13 @@ def booking_personal_info(request):
     adult = request.POST['adult']
     type = request.POST['type']
     price = request.POST['price']
+    rooms_images = NumberImages.objects.all().first()
     if adult == '2':
         form = DuoPersonalInfoForm
     else:
         form = SinglePersonalInfoForm
     context = {
+        'rooms_images': rooms_images,
         'check_in': check_in,
         'check_out': check_out,
         'adult': adult,
@@ -164,8 +169,9 @@ def booking_complete(request):
                 room=room_for_regist
             )
         order.save()
-
+        rooms_images = NumberImages.objects.all().first()
         context = {
+            'rooms_images': rooms_images,
             'check_in': check_in,
             'check_out': check_out,
             'adult': adult,

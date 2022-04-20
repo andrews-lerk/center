@@ -188,3 +188,15 @@ class Staff(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class NumberImages(models.Model):
+    luxe = models.ImageField('Комфорт', upload_to='numbers')
+    standart = models.ImageField('Стандарт', upload_to='numbers')
+
+    class Meta:
+        verbose_name = 'Фото комнат'
+        verbose_name_plural = 'Фото комнат'
+
+    def __str__(self):
+        return 'Фото комнат'
