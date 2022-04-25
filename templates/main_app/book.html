@@ -9,7 +9,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12">
-						<h2>Запись на полный курс лечения</h2>
+						<h2>Запись на полный курс оздоровления</h2>
 						<p></p>
 					</div>
 				</div>
@@ -141,8 +141,8 @@ max_date.setMonth(max_date.getMonth()+6)
 		onSelect(formattedDate, date, inst){
 			let min = new Date(date);
 			let max = new Date(date);
-			min.setDate(min.getDate()+3);
-			max.setDate(max.getDate()+11);
+			min.setDate(min.getDate()+1);
+			max.setDate(max.getDate()+21);
 			inst.minDate = min;
 			inst.maxDate = max;
 			if (date.length === 0) {

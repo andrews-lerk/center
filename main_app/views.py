@@ -183,6 +183,7 @@ def booking_complete(request):
 
 def book_osteopat(request):
     price = Prices.objects.all().first()
+    phone = MainPhone.objects.all().first()
     form = OsteopatForm()
     if request.POST:
         form = OsteopatForm(request.POST)
@@ -197,6 +198,7 @@ def book_osteopat(request):
             return render(request, 'main_app/book_osteopat_personal_info.html', context_)
     course = OsteopatDescription.objects.all().first()
     context = {
+        'phone': phone,
         'price': price,
         'form': form,
         'course': course
