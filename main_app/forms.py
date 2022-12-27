@@ -44,7 +44,7 @@ class SinglePersonalInfoForm(forms.Form):
         'class': 'form-control',
         'autocomplete': 'off',
         'id': 'birth',
-        'readonly': True,
+        'required': True,
     }))
     city = forms.CharField(required=True, widget=forms.TextInput(attrs={
         'class': 'form-control',
@@ -89,13 +89,13 @@ class DuoPersonalInfoForm(forms.Form):
         'class': 'form-control',
         'autocomplete': 'off',
         'id': 'birth',
-        'readonly': True,
+        'required': True,
     }))
     birth_date2 = forms.DateField(input_formats=['%d/%m/%Y'], required=True, widget=forms.TextInput(attrs={
         'class': 'form-control',
         'autocomplete': 'off',
         'id': 'birth2',
-        'readonly': True,
+        'required': True,
     }))
     city = forms.CharField(required=True, widget=forms.TextInput(attrs={
         'class': 'form-control',
