@@ -139,7 +139,7 @@ class OsteopatPersonalInfoForm(forms.Form):
         'class': 'form-control',
         'autocomplete': 'off',
         'id': 'birth',
-        'readonly': True,
+        'required': True,
     }))
     city = forms.CharField(required=True, widget=forms.TextInput(attrs={
         'class': 'form-control',
@@ -176,7 +176,7 @@ class DayPersonalInfoForm(forms.Form):
         'class': 'form-control',
         'autocomplete': 'off',
         'id': 'birth',
-        'readonly': True,
+        'required': True,
     }))
     city = forms.CharField(required=True, widget=forms.TextInput(attrs={
         'class': 'form-control',
