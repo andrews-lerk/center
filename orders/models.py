@@ -64,7 +64,7 @@ class OrderDay(models.Model):
     clients_info = models.TextField('Информация о пациенте')
     phone = models.CharField(max_length=20)
     email = models.EmailField()
-    price = models.IntegerField(verbose_name='Итоговая стоимость приема (в рублях)')
+    typeof = models.CharField(max_length=255, verbose_name='Тип дня (мини или макси)', null=True)
     status = models.CharField('Статус', choices=STATUS, default='2', max_length=40)
     date_in_process_pay = models.DateField('Дата перевода в процесс оплаты', blank=True, null=True)
     pay_day = models.DateField('Дата оплаты', blank=True, null=True)

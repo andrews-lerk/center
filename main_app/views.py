@@ -43,8 +43,8 @@ def booking(request):
             context_post = {
                 'luxe_img': rooms_images.luxe.url,
                 'standart_img': rooms_images.standart.url,
-                'luxe_price': int(luxe_price)*int(adult),
-                'standart_price': int(standart_price)*int(adult),
+                'luxe_price': int(luxe_price) * int(adult),
+                'standart_price': int(standart_price) * int(adult),
                 'days_count': days_count,
                 'check_in': check_in,
                 'check_out': check_out,
@@ -244,7 +244,7 @@ def book_day(request):
             context_ = {
                 'form': form_,
                 'date': date,
-                'price': price.health_day,
+                'typeof': 'День здоровья',
             }
             return render(request, 'main_app/book_day_personal_info.html', context_)
     course = DayDescription.objects.all().first()
@@ -258,7 +258,7 @@ def book_day(request):
 
 def book_day_complete(request):
     date = request.POST['date']
-    price = request.POST['price']
+    typeof = request.POST['typeof']
     form = OsteopatPersonalInfoForm(request.POST)
     print(form.errors)
     if form.is_valid():
@@ -273,14 +273,43 @@ def book_day_complete(request):
                          f'Дата рождения: {form.cleaned_data["birth_date"]}, Город: {form.cleaned_data["city"]}',
             phone=form.cleaned_data['phone'],
             email=form.cleaned_data['email'],
-            price=price
+            typeof=typeof
         )
         order.save()
         context = {
             'date': date,
-            'price': price,
+            'typeof': typeof
         }
         return render(request, 'main_app/book_day_complete.html', context)
+    context = {
+        'form': form,
+        'date': date,
+        'typeof': 'День здоровья',
+    }
+    return render(request, 'main_app/book_day_personal_info.html', context)
+
+
+def book_day_mini(request):
+    price = Prices.objects.all().first()
+    form = OsteopatForm()
+    if request.POST:
+        form = OsteopatForm(request.POST)
+        if form.is_valid():
+            date = form.cleaned_data['date']
+            form_ = OsteopatPersonalInfoForm()
+            context_ = {
+                'form': form_,
+                'date': date,
+                'typeof': 'День здоровья "мини"',
+            }
+            return render(request, 'main_app/book_day_personal_info.html', context_)
+    course = DayMiniDescription.objects.all().first()
+    context = {
+        'price': price,
+        'form': form,
+        'course': course
+    }
+    return render(request, 'main_app/book-day-mini.html', context)
 
 
 def view_gallery(request):

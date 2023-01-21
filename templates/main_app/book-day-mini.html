@@ -2,21 +2,21 @@
 {% load static %}
 
 {% block active_main %}
-	<li ><a href="{% url 'home' %}">Главная</a>
+<li ><a href="{% url 'home' %}">Главная</a></li>
 {% endblock %}
 		{% block content %}
 		<div class="mg-page-title parallax">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12">
-						<h2>Запись на прием к остеопату</h2>
+						<h2>Запись на день здоровья "мини"</h2>
 						<p></p>
 					</div>
 				</div>
 			</div>
 		</div>
 		<div class="mg-single-room-price">
-			<div class="mg-srp-inner">₽{{ price.osteopat }}<span>/Прием</span></div>
+			<div class="mg-srp-inner" style="font-size: 160%">от {{ price.health_day_mini }}<a style="font-size: 90%">₽</a><span>/День</span></div>
 		</div>
 		<div class="mg-page">
 			<div class="container">
@@ -26,23 +26,32 @@
 							<div class="tab-content">
 								<div class="mg-filter">
 								<label>
-										<a class="btn btn-link" href="#course-info">Подробнее о приеме <i class="fa fa-angle-double-right"></i></a>
+										<a class="btn btn-link" href="#course-info">Подробнее о дне <i class="fa fa-angle-double-right"></i></a>
 									</label>
 								</div>
 									<div class="mg-saerch-room">
 										<div class="mg-book-now mt80">
 											<div class="row">
 												<div class="col-lg-3">
-													<h2 class="mg-bn-title">Запишитесь<span class="mg-bn-big">По телефону</span></h2>
+													<h2 class="mg-bn-title">Запишитесь<span class="mg-bn-big">Выберите удобную дату</span></h2>
 												</div>
 												<div class="col-lg-9">
 													<div class="mg-bn-forms">
+														<form method="post">
+															{% csrf_token %}
 															<div class="row">
 																<div class="col-md-6 col-lg-4">
-																<div class="col-md-12 col-lg-9">
-																	<span style="color: white; font-size: 115%;">{{ phone }}</span>
+																	<div class="input-group">
+																		<div class="input-group-addon"><i class="far fa-calendar-alt"></i></div>
+																		{{ form.date }}
+																	</div>
+																	<span style="color: red">{{ form.date.errors }}</span>
+																</div>
+																<div class="col-md-12 col-lg-2">
+																	<button class="btn btn-main btn-block" type="submit">Найти</button>
 																</div>
 															</div>
+														</form>
 													</div>
 												</div>
 											</div>
@@ -67,19 +76,20 @@
 						</div>
 					</div>
 					<div class="col-lg-5 mg-room-fecilities">
-						<h2 class="mg-sec-left-title">Удобства приема</h2>
+						<h2 class="mg-sec-left-title">Удобства дня</h2>
 						<div class="row">
 							<div class="col-6">
 								<ul>
-									<li><i class="far fa-sun"></i>Индивидуальная консультация</li>
-									<li><i class="fp-ht-bottle"></i>Фитобар</li>
-									<li><i class="fp-ht-computer"></i>Бесплатный Wi-fi</li>
+									<li><i class="far fa-sun"></i>Индивидуальная программа</li>
+									<li><i class="fp-ht-sunumbrella"></i>Зона отдыха</li>
+									<li><i class="fp-ht-parking"></i>Бесплатная парковка</li>
 								</ul>
 							</div>
 							<div class="col-6">
 								<ul>
-									<li><i class="fp-ht-sunumbrella"></i>Зона отдыха</li>
-									<li><i class="fp-ht-parking"></i>Бесплатная парковка</li>
+									<li><i class="fp-ht-food"></i> Обед и ужин (шведский стол) </li>
+									<li><i class="fp-ht-bottle"></i> Фитобар</li>
+									<li><i class="fp-ht-computer"></i>Бесплатный Wi-fi</li>
 								</ul>
 							</div>
 						</div>
@@ -88,7 +98,7 @@
 				<div class="row">
 					<div class="col-md-12">
 						<div class="mg-single-room-txt">
-							<h2 class="mg-sec-left-title">Описание приема</h2>
+							<h2 class="mg-sec-left-title">Описание дня</h2>
 							{{ course.description|safe }}
 							</div>
 					</div>

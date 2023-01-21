@@ -16,9 +16,10 @@ class MainPhotos(models.Model):
 
 
 class CoursesPhoto(models.Model):
-    right = models.ImageField(upload_to='course_photos')
-    middle = models.ImageField(upload_to='course_photos')
-    left = models.ImageField(upload_to='course_photos')
+    full_course = models.ImageField(upload_to='course_photos')
+    day = models.ImageField(upload_to='course_photos')
+    day_mini = models.ImageField(upload_to='course_photos', null=True)
+    osteopat = models.ImageField(upload_to='course_photos')
 
     class Meta:
         verbose_name = 'Фото курсов лечения на главной странице'
@@ -99,12 +100,27 @@ class DayDescription(models.Model):
         return 'Описание дня здоровья'
 
 
+class DayMiniDescription(models.Model):
+    photo_1 = models.ImageField(upload_to='day_photos')
+    photo_2 = models.ImageField(upload_to='day_photos')
+    photo_3 = models.ImageField(upload_to='day_photos')
+    description = models.TextField()
+
+    class Meta:
+        verbose_name = 'Описание дня здоровья мини'
+        verbose_name_plural = 'Описание дня здоровья мини'
+
+    def __str__(self):
+        return 'Описание дня здоровья мини'
+
+
 class Prices(models.Model):
     luxe_room_full_health = models.IntegerField(verbose_name='Сутки полного курса лечения (номер "комфорт")',
                                                 default=9300)
     standart_room_full_health = models.IntegerField(verbose_name='Сутки полного курса лечения (номер "стандарт")',
                                                     default=8800)
     health_day = models.IntegerField(verbose_name='День здоровья', default=6800)
+    health_day_mini = models.IntegerField(verbose_name='День здоровья "мини"', default=2700)
     osteopat = models.IntegerField(verbose_name='Посещение остеопата', default=5000)
 
     class Meta:

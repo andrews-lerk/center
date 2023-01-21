@@ -38,6 +38,14 @@ class DescriptionDayAdminForm(forms.ModelForm):
         fields = '__all__'
 
 
+class DescriptionDayMiniAdminForm(forms.ModelForm):
+    description = forms.CharField(widget=CKEditorUploadingWidget())
+
+    class Meta:
+        model = DayMiniDescription
+        fields = '__all__'
+
+
 class DescriptionOsteopatAdminForm(forms.ModelForm):
     description = forms.CharField(widget=CKEditorUploadingWidget())
 
@@ -98,6 +106,11 @@ class CategoriesAdmin(admin.ModelAdmin):
 @admin.register(DayDescription)
 class CategoriesAdmin(admin.ModelAdmin):
     form = DescriptionDayAdminForm
+
+
+@admin.register(DayMiniDescription)
+class DayMiniAdmin(admin.ModelAdmin):
+    form = DescriptionDayMiniAdminForm
 
 
 admin.site.register(MainPhotos)

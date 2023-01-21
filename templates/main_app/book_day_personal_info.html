@@ -26,7 +26,7 @@
 											<div class="mg-book-form-personal">
 												<form method="post" action="{% url 'day-complete' %}">
 													{% csrf_token %}
-													    <input type="hidden" name="price" value="{{ price }}">
+													    <input type="hidden" name="typeof" value="{{ typeof }}">
 														<input type="hidden" name="date" value="{{ date }}">
 												<h2 class="mg-sec-left-title">Персональные данные</h2>
 												<div class="row pb40">
@@ -75,10 +75,9 @@
 											<div class="mg-cart-container">
 												<aside class="mg-widget mt50" id="mg-room-cart">
 													<h2 class="mg-widget-title">Детали бронирования</h2>
-													<h4 class="mg-widget-title">День здоровья</h4>
+													<h4 class="mg-widget-title">{{ typeof }}</h4>
 													<div class="mg-widget-cart">
 														<div class="mg-widget-cart-row"><strong>Дата приема:</strong><span>{{ date }}</span></div>
-														<div class="mg-cart-total"><strong>Итого:</strong><span> ₽{{ price }}</span></div>
 													</div>
 												</aside>
 											</div>
