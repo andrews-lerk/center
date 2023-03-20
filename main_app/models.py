@@ -16,7 +16,8 @@ class MainPhotos(models.Model):
 
 
 class CoursesPhoto(models.Model):
-    full_course = models.ImageField(upload_to='course_photos')
+    full_course_maxi = models.ImageField(upload_to='course_photos')
+    full_course_mini = models.ImageField(upload_to='course_photos', null=True)
     day = models.ImageField(upload_to='course_photos')
     day_mini = models.ImageField(upload_to='course_photos', null=True)
     osteopat = models.ImageField(upload_to='course_photos')
