@@ -1,0 +1,31 @@
+{% extends 'main_app/base.html' %}
+{% load static %}
+
+{% block active_main %}
+	<li ><a href="{% url 'home' %}">Главная</a>
+{% endblock %}
+		{% block active_gallery %}
+			<li class="active"><a href="{% url 'gallery' %}">Галерея</a>
+			</li>
+			{% endblock %}
+        {% block content %}
+        		<div class="mg-page-title parallax">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<h2>Правовая информация</h2>
+						<p></p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="mg-page">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						{{ record }}
+					</div>
+				</div>
+			</div>
+		</div>
+        {% endblock %}

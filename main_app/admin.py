@@ -22,6 +22,22 @@ class DescriptionAdminForm(forms.ModelForm):
         fields = '__all__'
 
 
+class RulesAdminForm(forms.ModelForm):
+    rules = forms.CharField(widget=CKEditorUploadingWidget())
+
+    class Meta:
+        model = Rules
+        fields = '__all__'
+
+
+class MainCourseMiniAdminForm(forms.ModelForm):
+    description = forms.CharField(widget=CKEditorUploadingWidget())
+
+    class Meta:
+        model = MainCourseMini
+        fields = '__all__'
+
+
 class DescriptionMainCourseAdminForm(forms.ModelForm):
     description = forms.CharField(widget=CKEditorUploadingWidget())
 
@@ -111,6 +127,16 @@ class CategoriesAdmin(admin.ModelAdmin):
 @admin.register(DayMiniDescription)
 class DayMiniAdmin(admin.ModelAdmin):
     form = DescriptionDayMiniAdminForm
+
+
+@admin.register(Rules)
+class RulesAdmin(admin.ModelAdmin):
+    form = RulesAdminForm
+
+
+@admin.register(MainCourseMini)
+class MainCourseMiniAdmin(admin.ModelAdmin):
+    form = MainCourseMiniAdminForm
 
 
 admin.site.register(MainPhotos)

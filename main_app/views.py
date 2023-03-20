@@ -65,6 +65,16 @@ def booking(request):
     return render(request, 'main_app/book.html', context)
 
 
+def booking_mini(request):
+    price = Prices.objects.all().first()
+    course = MainCourseMini.objects.all().first()
+    context = {
+        'price': price,
+        'course': course
+    }
+    return render(request, 'main_app/course_mini.html', context)
+
+
 def booking_personal_info(request):
     check_in = request.POST['check_in']
     check_out = request.POST['check_out']
@@ -336,3 +346,11 @@ def view_tourism(request):
         'records': records,
     }
     return render(request, 'main_app/tourism.html', context)
+
+
+def view_rules(request):
+    record = Rules.objects.all().first()
+    context = {
+        'record': record,
+    }
+    return render(request, 'main_app/rules.html', context)

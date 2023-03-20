@@ -1,6 +1,7 @@
 from django.urls import path
 from .views import main_page, booking, booking_personal_info, \
-    booking_complete, view_gallery, view_doctors, view_tourism, book_osteopat, book_day, book_osteopat_complete, book_day_complete, book_day_mini
+    booking_complete, view_gallery, view_doctors, view_tourism, book_osteopat, book_day, book_osteopat_complete, \
+    book_day_complete, book_day_mini, view_rules, booking_mini
 
 from django.conf import settings
 from django.conf.urls.static import static
@@ -9,6 +10,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('', main_page, name='home'),
     path('book/', booking, name='booking'),
+    path('book-mini/', booking_mini, name='booking-mini'),
     path('book/personal-info/', booking_personal_info, name='booking_personal_info'),
     path('book/complete/', booking_complete, name='booking_complete'),
     path('gallery/', view_gallery, name='gallery'),
@@ -19,6 +21,7 @@ urlpatterns = [
     path('book-osteopat-complete/', book_osteopat_complete, name='osteopat-complete'),
     path('book-day-complete/', book_day_complete, name='day-complete'),
     path('book-day-mini/', book_day_mini, name='book-day-mini'),
+    path('rules/', view_rules, name='rules'),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

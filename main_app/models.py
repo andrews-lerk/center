@@ -65,11 +65,25 @@ class MainCourse(models.Model):
     description = models.TextField()
 
     class Meta:
-        verbose_name = 'Описание полного курса'
-        verbose_name_plural = 'Описание для полного курса'
+        verbose_name = 'Описание полного курса МАКСИ'
+        verbose_name_plural = 'Описание для полного курса МАКСИ'
 
     def __str__(self):
-        return 'Описание для полного курса'
+        return 'Описание для полного курса МАКСИ'
+
+
+class MainCourseMini(models.Model):
+    photo_1 = models.ImageField(upload_to='main_course_photos')
+    photo_2 = models.ImageField(upload_to='main_course_photos')
+    photo_3 = models.ImageField(upload_to='main_course_photos')
+    description = models.TextField()
+
+    class Meta:
+        verbose_name = 'Описание полного курса МИНИ'
+        verbose_name_plural = 'Описание для полного курса МИНИ'
+
+    def __str__(self):
+        return 'Описание для полного курса МИНИ'
 
 
 class OsteopatDescription(models.Model):
@@ -115,9 +129,9 @@ class DayMiniDescription(models.Model):
 
 
 class Prices(models.Model):
-    luxe_room_full_health = models.IntegerField(verbose_name='Сутки полного курса лечения (номер "комфорт")',
-                                                default=9300)
-    standart_room_full_health = models.IntegerField(verbose_name='Сутки полного курса лечения (номер "стандарт")',
+    full_health_maxi = models.IntegerField(verbose_name='Сутки полного курса лечения МАКСИ',
+                                                    default=8800)
+    full_health_mini = models.IntegerField(verbose_name='Сутки полного курса лечения МИНИ',
                                                     default=8800)
     health_day = models.IntegerField(verbose_name='День здоровья', default=6800)
     health_day_mini = models.IntegerField(verbose_name='День здоровья "мини"', default=2700)
@@ -216,3 +230,14 @@ class NumberImages(models.Model):
 
     def __str__(self):
         return 'Фото комнат'
+
+
+class Rules(models.Model):
+    rules = models.TextField('Правила')
+
+    class Meta:
+        verbose_name = 'Правила посещения'
+        verbose_name_plural = 'Правила посещения'
+
+    def __str__(self):
+        return 'Правила посещения'
