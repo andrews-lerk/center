@@ -351,6 +351,6 @@ def view_tourism(request):
 def view_rules(request):
     record = Rules.objects.all().first()
     context = {
-        'record': record,
+        'record': record.rules,
     }
     return render(request, 'main_app/rules.html', context)
