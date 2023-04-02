@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'main_app',
     'orders',
     'busy_dates',
+    'analytical',
 ]
 
 MIDDLEWARE = [
@@ -108,6 +109,8 @@ TIME_ZONE = 'Europe/Kaliningrad'
 USE_I18N = True
 
 USE_TZ = True
+
+YANDEX_METRICA_COUNTER_ID = '92704438'
 
 
 # Static files (CSS, JavaScript, Images)

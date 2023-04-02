@@ -1,11 +1,8 @@
-from django.http import HttpResponseRedirect
 from django.urls import reverse, path
 from django.utils.html import mark_safe
 from django.contrib import admin
 from .models import *
 from django import forms
-from django.contrib import messages
-from .utils import *
 
 from ckeditor_uploader.widgets import CKEditorUploadingWidget
 

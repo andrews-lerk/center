@@ -4,7 +4,6 @@ from orders.models import *
 from busy_dates.models import *
 from .forms import *
 from datetime import datetime, date, time
-from .utils import *
 
 
 def main_page(request):
@@ -38,7 +37,7 @@ def booking(request):
             price = Prices.objects.all().first()
             luxe_price = price.luxe_room_full_health * days_count
             standart_price = price.standart_room_full_health * days_count
-            busy_rooms = get_busy_rooms(check_in_client=check_in_date, checkout_out_client=check_out_date)
+            busy_rooms = 1
             rooms_images = NumberImages.objects.all().first()
             context_post = {
                 'luxe_img': rooms_images.luxe.url,
@@ -123,8 +122,7 @@ def booking_complete(request):
         email = form.cleaned_data['email']
         room_for_regist = str()
         if type == 'Комфорт':
-            rooms_busy_id = get_busy_rooms(check_in_client=datetime.strptime(check_in, "%d/%m/%Y"),
-                                           checkout_out_client=datetime.strptime(check_out, "%d/%m/%Y"))['luxe_busy_id']
+            rooms_busy_id = 1
             rooms = Rooms.objects.filter(room_type='1')
             for room in rooms:
                 if room.id in rooms_busy_id:
@@ -139,9 +137,7 @@ def booking_complete(request):
                     date_.save()
                     break
         else:
-            rooms_busy_id = get_busy_rooms(check_in_client=datetime.strptime(check_in, "%d/%m/%Y"),
-                                           checkout_out_client=datetime.strptime(check_out, "%d/%m/%Y"))[
-                'standart_busy_id']
+            rooms_busy_id = 1
             rooms = Rooms.objects.filter(room_type='2')
             for room in rooms:
                 if room.id in rooms_busy_id:
