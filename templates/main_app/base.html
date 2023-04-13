@@ -111,22 +111,26 @@ html {
 										</ul>
 									</li>
 									{% block active_docs %}
-									<li><a href="{% url 'doctors' %}">Наши специалисты</a>
-									</li>
 									{% endblock %}
 									{% block active_tourism %}
-									<li><a href="{% url 'tourism' %}">Досуг и туризм</a>
-									</li>
 									{% endblock %}
+									<li><a href="{% url 'gallery' %}">Лечебные процедуры</a>
+									</li>
 									{% block active_gallery %}
 									<li><a href="{% url 'gallery' %}">Галерея</a>
 									</li>
 									{% endblock %}
-									<li><a href="{% url 'rules' %}">Правовая информация</a>
-									</li>
-									<li><a href="{% url 'home' %}#about_us">О нас</a>
-									</li>
-									<li><a href="#contacts">Контакты</a>
+									<li class="dropdown"><a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Контакты и информация</a>
+										<ul class="dropdown-menu">
+											<li><a href="{% url 'doctors' %}">Наши специалисты</a>
+											</li>
+											<li><a href="{% url 'rules' %}">Правовая информация</a>
+											</li>
+											<li><a href="{% url 'home' %}#about_us">О нас</a>
+											</li>
+											<li><a href="#contacts">Контакты</a>
+											</li>
+										</ul>
 									</li>
 								</ul>
 							</div>
