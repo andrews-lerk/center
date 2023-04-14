@@ -50,6 +50,9 @@ class Rooms(models.Model):
 
     room_type = models.CharField('Тип номера', choices=TYPES, max_length=1, default='1')
     title = models.CharField('Название', max_length=63)
+    photo = models.ImageField(upload_to='rooms')
+    description = models.TextField()
+    price = models.IntegerField('Цена за сутки')
 
     class Meta:
         verbose_name = 'Комната'
@@ -131,9 +134,9 @@ class DayMiniDescription(models.Model):
 
 class Prices(models.Model):
     full_health_maxi = models.IntegerField(verbose_name='Сутки полного курса лечения МАКСИ',
-                                                    default=8800)
+                                           default=8800)
     full_health_mini = models.IntegerField(verbose_name='Сутки полного курса лечения МИНИ',
-                                                    default=8800)
+                                           default=8800)
     health_day = models.IntegerField(verbose_name='День здоровья', default=6800)
     health_day_mini = models.IntegerField(verbose_name='День здоровья "мини"', default=2700)
     osteopat = models.IntegerField(verbose_name='Посещение остеопата', default=5000)
@@ -242,3 +245,19 @@ class Rules(models.Model):
 
     def __str__(self):
         return 'Правила посещения'
+
+
+class Procedures(models.Model):
+    title = models.CharField('Название процедуры', max_length=255)
+    description = models.TextField('Описание процедуры')
+    photo_1 = models.ImageField(upload_to='procedures')
+    photo_2 = models.ImageField(upload_to='procedures')
+    photo_3 = models.ImageField(upload_to='procedures')
+    price = models.IntegerField('Цена')
+
+    class Meta:
+        verbose_name = 'Процедуры'
+        verbose_name_plural = 'Процедуры'
+
+    def __str__(self):
+        return self.title

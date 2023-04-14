@@ -1,0 +1,36 @@
+{% extends 'main_app/base.html' %}
+
+{% block content %}
+<div class="mg-page-title parallax">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Лечебные Процедуры</h2>
+                <p></p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="mg-blog-list">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <main>
+                    {% for p in procedures %}
+                    <article class="mg-post">
+                        <header>
+                            <a href="blog-single.html"><img class="img-fluid" src="{{ p.photo_1.url }}" alt=""></a>
+                            <h2 class="mg-post-title"><a href="blog-single.html" rel="bookmark">{{ p.title }}</a></h2>
+                            <div class="mg-post-meta"><span style="font-size: 140%; color: #1b1b1b"><b>{{ p.price }}.00 руб</b></span> <a class="btn btn-main" href="#contacts">Записаться по телефону</a></div>
+                        </header>
+                        <div>
+                            <p>{{ p.description }}</p>
+                        </div>
+                    </article>
+                    {% endfor %}
+                </main>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

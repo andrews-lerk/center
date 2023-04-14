@@ -350,3 +350,19 @@ def view_rules(request):
         'record': record.rules,
     }
     return render(request, 'main_app/rules.html', context)
+
+
+def view_rooms(request):
+    records = Rooms.objects.all()
+    context = {
+        'rooms': records,
+    }
+    return render(request, 'main_app/rooms.html', context)
+
+
+def view_procedures(request):
+    records = Procedures.objects.all()
+    context = {
+        'procedures': records,
+    }
+    return render(request, 'main_app/procedures.html', context)

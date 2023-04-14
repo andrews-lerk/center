@@ -1,0 +1,80 @@
+{% extends 'main_app/base.html' %}
+
+{% block content %}
+<div class="mg-page-title parallax">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Номера</h2>
+                <p></p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="mg-page mg-available-rooms">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                {% for room in rooms %}
+                <div class="mg-avl-room">
+                    <div class="row">
+                        <div class="col-sm-5"><a href="#"><img class="img-fluid" src="{{ room.photo.url }}" alt=""></a></div>
+                        <div class="col-sm-7">
+                            <h3 class="mg-avl-room-title"><a href="#">{{ room.title }}</a><span>₽{{ room.price }}<sup>.00</sup>/Сутки</span></h3>
+                            <p>{{ room.description }}</p>
+                            <div class="row mg-room-fecilities">
+                                {% if room.room_type == '1' %}
+                                <div class="col-sm-6">
+                                    <ul>
+                                        <li><i class="fp-ht-bed"></i>2-х спальная кровать
+                                        </li>
+                                        <li><i class="fp-ht-tv"></i> TV LCD
+                                        </li>
+                                        <li><i class="fp-ht-hanger2"></i> Халаты
+                                        </li>
+                                        <li><i class="fp-ht-downarrow"></i> Холодильник
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-sm-6">
+                                    <ul>
+                                        <li><i class="far fa-sun"></i>Большой номер
+                                        </li>
+                                        <li><i class="fp-ht-computer"></i> Wi-fi
+                                        </li>
+                                        <li><i class="fp-ht-toothpaste"></i> Гель для душа и шумпунь
+                                        </li>
+                                        <li><i class="far fa-sun"></i> Чайник
+                                        </li>
+                                    </ul>
+                                </div>
+                                {% else %}
+                                <div class="col-sm-6">
+                                    <ul>
+                                        <li><i class="fp-ht-bed"></i>2-х спальная кровать
+                                        </li>
+                                        <li><i class="fp-ht-hanger2"></i> Халаты
+                                        </li>
+                                        <li><i class="fp-ht-toothpaste"></i> Гель для душа и шумпунь
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-sm-6">
+                                    <ul>
+                                        <li><i class="fp-ht-tv"></i> TV LCD
+                                        </li>
+                                        <li><i class="fp-ht-computer"></i> Wi-fi
+                                        </li>
+                                    </ul>
+                                </div>
+                                {% endif %}
+                            </div><a class="btn btn-main float-right" href="{% url 'home' %}">Забронировать</a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
