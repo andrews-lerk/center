@@ -1,7 +1,7 @@
 from django.urls import path
 from .views import main_page, booking, booking_personal_info, \
     booking_complete, view_gallery, view_doctors, view_tourism, book_osteopat, book_day, book_osteopat_complete, \
-    book_day_complete, book_day_mini, view_rules, booking_mini, view_rooms, view_procedures
+    book_day_complete, book_day_mini, view_rules, booking_mini, view_rooms, view_procedures, view_offer
 
 from django.conf import settings
 from django.conf.urls.static import static
@@ -24,6 +24,7 @@ urlpatterns = [
     path('rules/', view_rules, name='rules'),
     path('rooms/', view_rooms, name='rooms'),
     path('procedures/', view_procedures, name='procedures'),
+    path('offer/', view_offer, name='offer'),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

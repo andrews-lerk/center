@@ -12,12 +12,16 @@ def main_page(request):
     description = Description.objects.filter(active=True).first()
     phone = MainPhone.objects.all().first()
     price = Prices.objects.all().first()
+    offer = False
+    if Offer.objects.all():
+        offer = True
     context = {
         'phone': phone,
         'price': price,
         'photos': photos,
         'course_photos': course_photos,
-        'description': description
+        'description': description,
+        'offer': offer
     }
     return render(request, 'main_app/index.html', context)
 
@@ -366,3 +370,11 @@ def view_procedures(request):
         'procedures': records,
     }
     return render(request, 'main_app/procedures.html', context)
+
+
+def view_offer(request):
+    record = Offer.objects.all().first()
+    context = {
+        'offer': record,
+    }
+    return render(request, 'main_app/offer.html', context)

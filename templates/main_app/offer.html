@@ -1,0 +1,35 @@
+{% extends 'main_app/base.html' %}
+
+{% block content %}
+<div class="mg-page-title parallax">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>спецпредложение</h2>
+                <p></p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="mg-blog-list">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <main>
+                    <article class="mg-post">
+                        <header>
+                            <img class="img-fluid" src="{{ offer.photo.url }}" alt="">
+                            <h2 class="mg-post-title"><a rel="bookmark">{{ offer.title }}</a></h2>
+                            <div class="mg-post-meta"><span style="font-size: 140%; color: #1b1b1b"><b>{{ offer.price }}.00 руб</b></span></div>
+                        </header>
+                        <div>
+                            <p>{{ offer.description }}</p>
+                        </div>
+                    </article>
+
+                </main>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

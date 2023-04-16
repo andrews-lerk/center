@@ -89,7 +89,7 @@ html {
 				<div class="container">
 					<div class="navbar navbar-expand-md justify-content-between"><a class="navbar-brand" href="{% url 'home' %}"><img style="height: 50px; width: 80px;" src="{% static 'assets/images/logo__.jpg' %}" alt="logo"></a>
 						<div class="mg-navs">
-							<button style="position: absolute; right: -100px; top: 0px;" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+							<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
 							<div class="collapse navbar-collapse ml-auto" id="navbarSupportedContent">
 								<ul class="navbar-nav navbar-right">
 									{% block active_main %}
@@ -110,14 +110,14 @@ html {
 											</li>
 										</ul>
 									</li>
-									{% block active_docs %}
-									{% endblock %}
-									{% block active_tourism %}
-									{% endblock %}
+									{% block active_procedures %}
 									<li><a href="{% url 'procedures' %}">Лечебные процедуры</a>
 									</li>
+									{% endblock %}
+									{% block active_room %}
 									<li><a href="{% url 'rooms' %}">Номера</a>
 									</li>
+									{% endblock %}
 									{% block active_gallery %}
 									<li><a href="{% url 'gallery' %}">Галерея</a>
 									</li>
@@ -125,6 +125,8 @@ html {
 									<li class="dropdown"><a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Контакты и информация</a>
 										<ul class="dropdown-menu">
 											<li><a href="{% url 'doctors' %}">Наши специалисты</a>
+											</li>
+											<li><a href="{% url 'tourism' %}">Туризм и досуг</a>
 											</li>
 											<li><a href="{% url 'rules' %}">Правовая информация</a>
 											</li>
@@ -138,6 +140,8 @@ html {
 							</div>
 						</div>
 					</div>
+					<div class="mg-search-box-cont" style="position: absolute; right: 7%; top: 15%"><a href="#contacts"><i style="font-size: 150%" class="fa fa-phone"></i></a>
+							</div>
 				</div>
 			</nav>
 		</header>

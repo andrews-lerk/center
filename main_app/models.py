@@ -50,7 +50,10 @@ class Rooms(models.Model):
 
     room_type = models.CharField('Тип номера', choices=TYPES, max_length=1, default='1')
     title = models.CharField('Название', max_length=63)
-    photo = models.ImageField(upload_to='rooms')
+    photo_1 = models.ImageField(upload_to='rooms')
+    photo_2 = models.ImageField(upload_to='rooms')
+    photo_3 = models.ImageField(upload_to='rooms')
+    photo_4 = models.ImageField(upload_to='rooms')
     description = models.TextField()
     price = models.IntegerField('Цена за сутки')
 
@@ -258,6 +261,20 @@ class Procedures(models.Model):
     class Meta:
         verbose_name = 'Процедуры'
         verbose_name_plural = 'Процедуры'
+
+    def __str__(self):
+        return self.title
+
+
+class Offer(models.Model):
+    title = models.CharField('Название спецпредложения', max_length=255)
+    description = models.TextField('Описание спецпредложения')
+    photo = models.ImageField(upload_to='procedures')
+    price = models.IntegerField()
+
+    class Meta:
+        verbose_name = 'Спецпредложение'
+        verbose_name_plural = 'Спецпредложения'
 
     def __str__(self):
         return self.title
