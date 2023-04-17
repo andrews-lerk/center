@@ -2,8 +2,8 @@ from django.db import models
 
 
 class Clients(models.Model):
-    phone = models.CharField('Номер телефона', max_length=20)
-    name = models.CharField('ФИО клиента', max_length=255)
+    phone = models.CharField('Номер телефона', max_length=20, unique=True)
+    name = models.CharField('ФИО клиента', max_length=255, unique=True)
     email = models.EmailField(null=True, blank=True)
 
     class Meta:
