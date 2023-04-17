@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'orders',
     'busy_dates',
     'analytical',
+    'clients'
 ]
 
 MIDDLEWARE = [
