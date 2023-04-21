@@ -11,8 +11,8 @@ class Order(models.Model):
 
     check_in = models.DateField('Дата заезда')
     check_out = models.DateField('Дата выезда')
-    room_type = models.CharField('Выбранный тип номера', max_length=10)
-    room = models.ForeignKey(Rooms, verbose_name='Назначенный системой номер', on_delete=models.CASCADE)
+    room_type = models.CharField('Выбранный тип номера', max_length=10, null=True, blank=True)
+    room = models.ForeignKey(Rooms, verbose_name='Назначенный системой номер', on_delete=models.CASCADE, null=True, blank=True)
     clients_info = models.TextField('Информация о пациентах')
     phone = models.CharField(max_length=20)
     email = models.EmailField()

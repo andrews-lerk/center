@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from django.urls import reverse
+
 from .models import *
 from orders.models import *
 from busy_dates.models import *
@@ -27,6 +29,47 @@ def main_page(request):
 
 
 def booking(request):
+    # form = DateForm
+    # if request.POST:
+    #     form = DateForm(request.POST)
+    #     if form.is_valid():
+    #         lst_of_dates = form.cleaned_data['check_in_out'].split(' - ')
+    #         adult = form.cleaned_data['adult']
+    #         check_in = lst_of_dates[0]
+    #         check_out = lst_of_dates[-1]
+    #         check_in_date = datetime.strptime(check_in, '%d/%m/%Y')
+    #         check_out_date = datetime.strptime(check_out, '%d/%m/%Y')
+    #         days_count = int((check_out_date - check_in_date).days)
+    #         price = Prices.objects.all().first()
+    #         luxe_price = price.luxe_room_full_health * days_count
+    #         standart_price = price.standart_room_full_health * days_count
+    #         busy_rooms = 1
+    #         rooms_images = NumberImages.objects.all().first()
+    #         context_post = {
+    #             'luxe_img': rooms_images.luxe.url,
+    #             'standart_img': rooms_images.standart.url,
+    #             'luxe_price': int(luxe_price) * int(adult),
+    #             'standart_price': int(standart_price) * int(adult),
+    #             'days_count': days_count,
+    #             'check_in': check_in,
+    #             'check_out': check_out,
+    #             'adult': adult,
+    #             'luxe_count': busy_rooms['luxe'].split('/')[-1],
+    #             'luxe_free': int(busy_rooms['luxe'].split('/')[0]),
+    #             'standart_count': busy_rooms['standart'].split('/')[-1],
+    #             'standart_free': int(busy_rooms['standart'].split('/')[0]),
+    #         }
+    #         return render(request, 'main_app/book_step_2.html', context_post)
+    price = Prices.objects.all().first()
+    course = MainCourse.objects.all().first()
+    context = {
+        'price': price,
+        'course': course
+    }
+    return render(request, 'main_app/book.html', context)
+
+
+def booking_mini(request):
     form = DateForm
     if request.POST:
         form = DateForm(request.POST)
@@ -38,40 +81,30 @@ def booking(request):
             check_in_date = datetime.strptime(check_in, '%d/%m/%Y')
             check_out_date = datetime.strptime(check_out, '%d/%m/%Y')
             days_count = int((check_out_date - check_in_date).days)
-            price = Prices.objects.all().first()
-            luxe_price = price.luxe_room_full_health * days_count
-            standart_price = price.standart_room_full_health * days_count
-            busy_rooms = 1
-            rooms_images = NumberImages.objects.all().first()
+            # price = Prices.objects.all().first()
+            # luxe_price = price.luxe_room_full_health * days_count
+            # standart_price = price.standart_room_full_health * days_count
+            # busy_rooms = 1
+            # rooms_images = NumberImages.objects.all().first()
             context_post = {
-                'luxe_img': rooms_images.luxe.url,
-                'standart_img': rooms_images.standart.url,
-                'luxe_price': int(luxe_price) * int(adult),
-                'standart_price': int(standart_price) * int(adult),
+                # 'luxe_img': rooms_images.luxe.url,
+                # 'standart_img': rooms_images.standart.url,
+                # 'luxe_price': int(luxe_price) * int(adult),
+                # 'standart_price': int(standart_price) * int(adult),
                 'days_count': days_count,
                 'check_in': check_in,
                 'check_out': check_out,
                 'adult': adult,
-                'luxe_count': busy_rooms['luxe'].split('/')[-1],
-                'luxe_free': int(busy_rooms['luxe'].split('/')[0]),
-                'standart_count': busy_rooms['standart'].split('/')[-1],
-                'standart_free': int(busy_rooms['standart'].split('/')[0]),
+                # 'luxe_count': busy_rooms['luxe'].split('/')[-1],
+                # 'luxe_free': int(busy_rooms['luxe'].split('/')[0]),
+                # 'standart_count': busy_rooms['standart'].split('/')[-1],
+                # 'standart_free': int(busy_rooms['standart'].split('/')[0]),
             }
-            return render(request, 'main_app/book_step_2.html', context_post)
-    price = Prices.objects.all().first()
-    course = MainCourse.objects.all().first()
-    context = {
-        'price': price,
-        'form': form,
-        'course': course
-    }
-    return render(request, 'main_app/book.html', context)
-
-
-def booking_mini(request):
+            return redirect(f'{reverse(booking_personal_info)}?check_in={check_in}&check_out={check_out}&adult={adult}')
     price = Prices.objects.all().first()
     course = MainCourseMini.objects.all().first()
     context = {
+        'form': form,
         'price': price,
         'course': course
     }
@@ -79,11 +112,11 @@ def booking_mini(request):
 
 
 def booking_personal_info(request):
-    check_in = request.POST['check_in']
-    check_out = request.POST['check_out']
-    adult = request.POST['adult']
-    type = request.POST['type']
-    price = request.POST['price']
+    check_in = request.GET['check_in']
+    check_out = request.GET['check_out']
+    adult = request.GET['adult']
+    # type = request.POST['type']
+    # price = request.POST['price']
     rooms_images = NumberImages.objects.all().first()
     if adult == '2':
         form = DuoPersonalInfoForm
@@ -94,9 +127,7 @@ def booking_personal_info(request):
         'check_in': check_in,
         'check_out': check_out,
         'adult': adult,
-        'type': type,
         'form': form,
-        'price': price,
     }
     return render(request, 'main_app/book_step_3.html', context)
 
@@ -105,8 +136,8 @@ def booking_complete(request):
     check_in = request.POST['check_in']
     check_out = request.POST['check_out']
     adult = request.POST['adult']
-    type = request.POST['type']
-    price = request.POST['price']
+    # type = request.POST['type']
+    # price = request.POST['price']
     if adult == '2':
         form = DuoPersonalInfoForm(request.POST)
     else:
@@ -124,69 +155,30 @@ def booking_complete(request):
             city2 = form.cleaned_data['city2']
         phone = form.cleaned_data['phone']
         email = form.cleaned_data['email']
-        room_for_regist = str()
-        if type == 'Комфорт':
-            rooms_busy_id = 1
-            rooms = Rooms.objects.filter(room_type='1')
-            for room in rooms:
-                if room.id in rooms_busy_id:
-                    continue
-                else:
-                    date_ = Dates.objects.create(
-                        check_in=datetime.strptime(check_in, "%d/%m/%Y"),
-                        check_out=datetime.strptime(check_out, "%d/%m/%Y"),
-                        room=room
-                    )
-                    room_for_regist = room
-                    date_.save()
-                    break
-        else:
-            rooms_busy_id = 1
-            rooms = Rooms.objects.filter(room_type='2')
-            for room in rooms:
-                if room.id in rooms_busy_id:
-                    continue
-                else:
-                    date_ = Dates.objects.create(
-                        check_in=datetime.strptime(check_in, "%d/%m/%Y"),
-                        check_out=datetime.strptime(check_out, "%d/%m/%Y"),
-                        room=room
-                    )
-                    room_for_regist = room
-                    date_.save()
-                    break
         if adult == '2':
             order = Order.objects.create(
                 check_in=datetime.strptime(check_in, "%d/%m/%Y"),
                 check_out=datetime.strptime(check_out, "%d/%m/%Y"),
-                room_type=type,
                 clients_info=f'Имя: {first_name}, Фамилия: {last_name}, Дата рождения: {birth_date}, Город: {city}\n'
                              f'Имя: {first_name2}, Фамилия: {last_name2}, Дата рождения: {birth_date2}, Город: {city2}',
                 phone=phone,
                 email=email,
-                room=room_for_regist,
-                price=price
+                price=0
             )
         else:
             order = Order.objects.create(
                 check_in=datetime.strptime(check_in, "%d/%m/%Y"),
                 check_out=datetime.strptime(check_out, "%d/%m/%Y"),
-                room_type=type,
                 clients_info=f'Имя: {first_name}, Фамилия: {last_name}, Дата рождения: {birth_date}, Город: {city}\n',
                 phone=phone,
                 email=email,
-                price=price,
-                room=room_for_regist
+                price=0,
             )
         order.save()
-        rooms_images = NumberImages.objects.all().first()
         context = {
-            'rooms_images': rooms_images,
             'check_in': check_in,
             'check_out': check_out,
             'adult': adult,
-            'type': type,
-            'price': price,
         }
         return render(request, 'main_app/booking_complete.html', context)
 

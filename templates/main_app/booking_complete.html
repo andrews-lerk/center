@@ -26,22 +26,11 @@
 										<div class="mg-alert-icon"><i class="fa fa-check"></i></div>
 										<h3 class="mg-alert-payment">Мы приняли вашу заявку! Скоро Вам перезвонит менеджер для выяснения подробностей</h3>
 									</div>
-									<div class="mg-cart-container mg-paid">
+									<div class="mg-cart-container">
 										<aside class="mg-widget mt50" id="mg-room-cart">
 											<h2 class="mg-widget-title">Детали бронирования</h2>
 											<div class="mg-widget-cart">
 												<div class="row">
-													<div class="col-md-6">
-														<div class="mg-cart-room">
-															{% if type == 'Комфорт' %}
-															<img class="img-fluid" src="{{ rooms_images.luxe.url }}" alt="Delux Room">
-															{% else %}
-															<img class="img-fluid" src="{{ rooms_images.standart.url }}" alt="Delux Room">
-															{% endif %}
-															<h3>Номер: {{ type }}</h3>
-															<p></p>
-														</div>
-													</div>
 													<div class="col-md-6">
 														<h3 class="mg-payment-id">Полный курс лечения</h3>
 														<div class="mg-widget-cart-row"><strong>Дата заезда:</strong><span>{{ check_in }}</span></div>
