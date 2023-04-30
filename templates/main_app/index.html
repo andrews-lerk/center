@@ -31,13 +31,13 @@
 			<div class="carousel-control-prev carousel-control left" href="#mega-slider" role="button" data-slide="prev"></div>
 			<div class="carousel-control-next carousel-control right" href="#mega-slider" role="button" data-slide="next"></div>
 		</div>
-		<div class="tl-wrapper">
-			<div id="block-search-main">
-				<div id='tl-search-form-main' class='tl-container'>
-					<noindex><a href='https://www.travelline.ru/products/tl-hotel/' rel='nofollow' target='_blank'>TravelLine</a></noindex>
-				</div>
-			</div>
-		</div>
+<!--		<div class="tl-wrapper">-->
+<!--			<div id="block-search-main">-->
+<!--				<div id='tl-search-form-main' class='tl-container'>-->
+<!--					<noindex><a href='https://www.travelline.ru/products/tl-hotel/' rel='nofollow' target='_blank'>TravelLine</a></noindex>-->
+<!--				</div>-->
+<!--			</div>-->
+<!--		</div>-->
 		<section class="mg-book-now">
 			<div class="container">
 				<div class="row">
@@ -80,33 +80,6 @@
 									padding: 10px;
 									}
 
-									.button::after {
-									content: '';
-									width: 20px; height: 20px;
-									border-radius: 100%;
-									border: 6px solid orange;
-									position: absolute;
-									top: 50%;
-									left: 50%;
-									transform: translate(-50%, -50%);
-									animation: ring 1.5s infinite;
-									}
-
-									.button::before {
-									content: '';
-									border-radius: 1000px;
-									min-width: calc(300px + 12px);
-									min-height: calc(60px + 12px);
-									border: 6px solid blue;
-									box-shadow: 0 0 60px rgba(0,255,203,.64);
-									position: absolute;
-									top: 50%;
-									left: 50%;
-									transform: translate(-50%, -50%);
-									opacity: 0;
-									transition: all .3s ease-in-out 0s;
-									}
-
 									.button:hover, .button:focus {
 									color: ghostwhite;
 									transform: translateY(-6px);
@@ -119,20 +92,6 @@
 									.button:hover::after, .button:focus::after {
 									animation: none;
 									display: none;
-									}
-
-									@keyframes ring {
-									from {
-									width: 30px;
-									height: 30px;
-									opacity: 70%;
-									}
-									to {
-									width: 250px;
-									height: 250px;
-									opacity: 1%;
-									display: none;
-									}
 									}
 							</style>
 							{% if offer %}
@@ -156,7 +115,7 @@
 													<h4><span>от ₽{{ price.full_health_maxi }}<sup>.00</sup>/Сутки</span></h4>
 													<p>Пройдите комплекс оздоровительных процедур</p>
 													<div class="row mg-room-fecilities">
-													</div><a class="btn btn-dark" href="{% url 'booking' %}">Подробнее <i class="fa fa-angle-double-right"></i></a>
+													</div><a class="btn btn-dark" href="{% url 'booking' %}#course-info">Подробнее <i class="fa fa-angle-double-right"></i></a>
 													<a class="btn btn-main" href="{% url 'booking' %}">Записаться</a>
 												</div>
 											</div>
@@ -168,7 +127,7 @@
 													<h4><span>от ₽{{ price.full_health_mini }}<sup>.00</sup>/Сутки</span></h4>
 													<p>Пройдите комплекс оздоровительных процедур</p>
 													<div class="row mg-room-fecilities">
-													</div><a class="btn btn-dark" href="{% url 'booking-mini' %}">Подробнее <i class="fa fa-angle-double-right"></i></a>
+													</div><a class="btn btn-dark" href="{% url 'booking-mini' %}#course-info">Подробнее <i class="fa fa-angle-double-right"></i></a>
 													<a class="btn btn-main" href="{% url 'booking-mini' %}">Записаться</a>
 												</div>
 											</div>

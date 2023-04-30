@@ -29,40 +29,41 @@ def main_page(request):
 
 
 def booking(request):
-    # form = DateForm
-    # if request.POST:
-    #     form = DateForm(request.POST)
-    #     if form.is_valid():
-    #         lst_of_dates = form.cleaned_data['check_in_out'].split(' - ')
-    #         adult = form.cleaned_data['adult']
-    #         check_in = lst_of_dates[0]
-    #         check_out = lst_of_dates[-1]
-    #         check_in_date = datetime.strptime(check_in, '%d/%m/%Y')
-    #         check_out_date = datetime.strptime(check_out, '%d/%m/%Y')
-    #         days_count = int((check_out_date - check_in_date).days)
-    #         price = Prices.objects.all().first()
-    #         luxe_price = price.luxe_room_full_health * days_count
-    #         standart_price = price.standart_room_full_health * days_count
-    #         busy_rooms = 1
-    #         rooms_images = NumberImages.objects.all().first()
-    #         context_post = {
-    #             'luxe_img': rooms_images.luxe.url,
-    #             'standart_img': rooms_images.standart.url,
-    #             'luxe_price': int(luxe_price) * int(adult),
-    #             'standart_price': int(standart_price) * int(adult),
-    #             'days_count': days_count,
-    #             'check_in': check_in,
-    #             'check_out': check_out,
-    #             'adult': adult,
-    #             'luxe_count': busy_rooms['luxe'].split('/')[-1],
-    #             'luxe_free': int(busy_rooms['luxe'].split('/')[0]),
-    #             'standart_count': busy_rooms['standart'].split('/')[-1],
-    #             'standart_free': int(busy_rooms['standart'].split('/')[0]),
-    #         }
-    #         return render(request, 'main_app/book_step_2.html', context_post)
+    form = DateForm
+    if request.POST:
+        form = DateForm(request.POST)
+        if form.is_valid():
+            lst_of_dates = form.cleaned_data['check_in_out'].split(' - ')
+            adult = form.cleaned_data['adult']
+            check_in = lst_of_dates[0]
+            check_out = lst_of_dates[-1]
+            check_in_date = datetime.strptime(check_in, '%d/%m/%Y')
+            check_out_date = datetime.strptime(check_out, '%d/%m/%Y')
+            days_count = int((check_out_date - check_in_date).days)
+            # price = Prices.objects.all().first()
+            # luxe_price = price.luxe_room_full_health * days_count
+            # standart_price = price.standart_room_full_health * days_count
+            # busy_rooms = 1
+            # rooms_images = NumberImages.objects.all().first()
+            context_post = {
+                # 'luxe_img': rooms_images.luxe.url,
+                # 'standart_img': rooms_images.standart.url,
+                # 'luxe_price': int(luxe_price) * int(adult),
+                # 'standart_price': int(standart_price) * int(adult),
+                'days_count': days_count,
+                'check_in': check_in,
+                'check_out': check_out,
+                'adult': adult,
+                # 'luxe_count': busy_rooms['luxe'].split('/')[-1],
+                # 'luxe_free': int(busy_rooms['luxe'].split('/')[0]),
+                # 'standart_count': busy_rooms['standart'].split('/')[-1],
+                # 'standart_free': int(busy_rooms['standart'].split('/')[0]),
+            }
+            return redirect(f'{reverse(booking_personal_info)}?check_in={check_in}&check_out={check_out}&adult={adult}')
     price = Prices.objects.all().first()
     course = MainCourse.objects.all().first()
     context = {
+        'form': form,
         'price': price,
         'course': course
     }
