@@ -19,6 +19,14 @@ class DescriptionAdminForm(forms.ModelForm):
         fields = '__all__'
 
 
+class OfferAdminForm(forms.ModelForm):
+    description = forms.CharField(widget=CKEditorUploadingWidget())
+
+    class Meta:
+        model = Offer
+        fields = '__all__'
+
+
 class RulesAdminForm(forms.ModelForm):
     rules = forms.CharField(widget=CKEditorUploadingWidget())
 
@@ -136,6 +144,11 @@ class MainCourseMiniAdmin(admin.ModelAdmin):
     form = MainCourseMiniAdminForm
 
 
+@admin.register(Offer)
+class MainCourseMiniAdmin(admin.ModelAdmin):
+    form = OfferAdminForm
+
+
 admin.site.register(MainPhotos)
 admin.site.register(GalleryCategory)
 admin.site.register(Gallery)
@@ -145,4 +158,3 @@ admin.site.register(NumberImages)
 admin.site.register(CoursesPhoto)
 admin.site.register(Prices)
 admin.site.register(Procedures)
-admin.site.register(Offer)

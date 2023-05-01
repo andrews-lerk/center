@@ -68,18 +68,59 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-7 mb-4 mb-lg-0">
-						<div class="mg-gallery-container">
-							<ul class="mg-gallery" id="mg-gallery">
-								<li><img src="{{ course.photo_1.url }}" alt="Partner Logo"></li>
-								<li><img src="{{ course.photo_2.url }}" alt="Partner Logo"></li>
-								<li><img src="{{ course.photo_3.url }}" alt="Partner Logo"></li>
-							</ul>
-							<ul class="mg-gallery-thumb" id="mg-gallery-thumb">
-								<li><img src="{{ course.photo_1.url }}" alt="Partner Logo"></li>
-								<li><img src="{{ course.photo_2.url }}" alt="Partner Logo"></li>
-								<li><img src="{{ course.photo_3.url }}" alt="Partner Logo"></li>
-							</ul>
-						</div>
+						<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+                		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+						<div id="carouselExampleFade{{ forloop.counter }}" class="carousel slide carousel-fade">
+                              <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                  <img src="{{ course.photo_1.url }}" class="d-block w-100" alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                  <img src="{{ course.photo_2.url }}" class="d-block w-100" alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                  <img src="{{ course.photo_3.url }}" class="d-block w-100" alt="...">
+                                </div>
+								  {% if course.photo_4 %}
+                                  <div class="carousel-item">
+                                  <img src="{{ course.photo_4.url }}" class="d-block w-100" alt="...">
+                                </div>
+								  {% endif %}
+								  {% if course.photo_5 %}
+								  <div class="carousel-item">
+                                  <img src="{{ course.photo_5.url }}" class="d-block w-100" alt="...">
+                                </div>
+								  {% endif %}
+								  {% if course.photo_6 %}
+								  <div class="carousel-item">
+                                  <img src="{{ course.photo_6.url }}" class="d-block w-100" alt="...">
+                                </div>
+								  {% endif %}
+								  {% if course.photo_7 %}
+								  <div class="carousel-item">
+                                  <img src="{{ course.photo_7.url }}" class="d-block w-100" alt="...">
+                                </div>
+								  {% endif %}
+								  {% if course.photo_8 %}
+								  <div class="carousel-item">
+                                  <img src="{{ course.photo_8.url }}" class="d-block w-100" alt="...">
+                                </div>
+								  {% endif %}
+								  {% if course.photo_9 %}
+								  <div class="carousel-item">
+                                  <img src="{{ course.photo_9.url }}" class="d-block w-100" alt="...">
+                                </div>
+								  {% endif %}
+                              </div>
+                              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade{{ forloop.counter }}" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                              </button>
+                              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade{{ forloop.counter }}" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                              </button>
+                            </div>
 					</div>
 					<div class="col-lg-5 mg-room-fecilities">
 						<h2 class="mg-sec-left-title">Удобства курса</h2>
@@ -120,6 +161,18 @@
 				</div>
 			</div>
 		</div>
+		<link rel="stylesheet" href="{% static 'assets/libs/bootstrap/css/bootstrap.min.css' %}">
+		<link rel="stylesheet" href="{% static 'assets/libs/fontawesome/css/fontawesome-all.min.css' %}">
+		<link rel="stylesheet" href="{% static 'assets/css/owl.carousel.css' %}">
+		<link rel="stylesheet" href="{% static 'assets/css/owl.theme.css' %}">
+		<link rel="stylesheet" href="{% static 'assets/css/owl.transitions.css' %}">
+		<link rel="stylesheet" href="{% static 'assets/css/cs-select.css' %}">
+		<link rel="stylesheet" href="{% static 'assets/css/bootstrap-datepicker3.min.css' %}">
+		<link rel="stylesheet" href="{% static 'assets/css/freepik.hotels.css' %}">
+		<link rel="stylesheet" href="{% static 'assets/css/nivo-lightbox.min.css' %}">
+		<link rel="stylesheet" href="{% static 'assets/css/nivo-lightbox-theme.css' %}">
+		<link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+		<link rel="stylesheet" href="{% static 'assets/css/travelline-style.css' %}">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="{% static 'datepicker/js/datepicker.min.js' %}"></script>
 <link rel="stylesheet" href="{% static 'datepicker/css/datepicker.min.css' %}">

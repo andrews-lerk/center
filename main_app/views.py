@@ -366,8 +366,8 @@ def view_procedures(request):
 
 
 def view_offer(request):
-    record = Offer.objects.all().first()
+    record = Offer.objects.all()
     context = {
-        'offer': record,
+        'offers': record,
     }
     return render(request, 'main_app/offer.html', context)

@@ -69,6 +69,12 @@ class MainCourse(models.Model):
     photo_1 = models.ImageField(upload_to='main_course_photos')
     photo_2 = models.ImageField(upload_to='main_course_photos')
     photo_3 = models.ImageField(upload_to='main_course_photos')
+    photo_4 = models.ImageField(upload_to='main_course_photos', null=True, blank=True)
+    photo_5 = models.ImageField(upload_to='main_course_photos', null=True, blank=True)
+    photo_6 = models.ImageField(upload_to='main_course_photos', null=True, blank=True)
+    photo_7 = models.ImageField(upload_to='main_course_photos', null=True, blank=True)
+    photo_8 = models.ImageField(upload_to='main_course_photos', null=True, blank=True)
+    photo_9 = models.ImageField(upload_to='main_course_photos', null=True, blank=True)
     description = models.TextField()
 
     class Meta:
@@ -83,6 +89,12 @@ class MainCourseMini(models.Model):
     photo_1 = models.ImageField(upload_to='main_course_photos')
     photo_2 = models.ImageField(upload_to='main_course_photos')
     photo_3 = models.ImageField(upload_to='main_course_photos')
+    photo_4 = models.ImageField(upload_to='main_course_photos', null=True, blank=True)
+    photo_5 = models.ImageField(upload_to='main_course_photos', null=True, blank=True)
+    photo_6 = models.ImageField(upload_to='main_course_photos', null=True, blank=True)
+    photo_7 = models.ImageField(upload_to='main_course_photos', null=True, blank=True)
+    photo_8 = models.ImageField(upload_to='main_course_photos', null=True, blank=True)
+    photo_9 = models.ImageField(upload_to='main_course_photos', null=True, blank=True)
     description = models.TextField()
 
     class Meta:
@@ -97,6 +109,12 @@ class OsteopatDescription(models.Model):
     photo_1 = models.ImageField(upload_to='osteopat_photos')
     photo_2 = models.ImageField(upload_to='osteopat_photos')
     photo_3 = models.ImageField(upload_to='osteopat_photos')
+    photo_4 = models.ImageField(upload_to='main_course_photos', null=True, blank=True)
+    photo_5 = models.ImageField(upload_to='main_course_photos', null=True, blank=True)
+    photo_6 = models.ImageField(upload_to='main_course_photos', null=True, blank=True)
+    photo_7 = models.ImageField(upload_to='main_course_photos', null=True, blank=True)
+    photo_8 = models.ImageField(upload_to='main_course_photos', null=True, blank=True)
+    photo_9 = models.ImageField(upload_to='main_course_photos', null=True, blank=True)
     description = models.TextField()
 
     class Meta:
@@ -111,6 +129,12 @@ class DayDescription(models.Model):
     photo_1 = models.ImageField(upload_to='day_photos')
     photo_2 = models.ImageField(upload_to='day_photos')
     photo_3 = models.ImageField(upload_to='day_photos')
+    photo_4 = models.ImageField(upload_to='main_course_photos', null=True, blank=True)
+    photo_5 = models.ImageField(upload_to='main_course_photos', null=True, blank=True)
+    photo_6 = models.ImageField(upload_to='main_course_photos', null=True, blank=True)
+    photo_7 = models.ImageField(upload_to='main_course_photos', null=True, blank=True)
+    photo_8 = models.ImageField(upload_to='main_course_photos', null=True, blank=True)
+    photo_9 = models.ImageField(upload_to='main_course_photos', null=True, blank=True)
     description = models.TextField()
 
     class Meta:
@@ -125,6 +149,12 @@ class DayMiniDescription(models.Model):
     photo_1 = models.ImageField(upload_to='day_photos')
     photo_2 = models.ImageField(upload_to='day_photos')
     photo_3 = models.ImageField(upload_to='day_photos')
+    photo_4 = models.ImageField(upload_to='main_course_photos', null=True, blank=True)
+    photo_5 = models.ImageField(upload_to='main_course_photos', null=True, blank=True)
+    photo_6 = models.ImageField(upload_to='main_course_photos', null=True, blank=True)
+    photo_7 = models.ImageField(upload_to='main_course_photos', null=True, blank=True)
+    photo_8 = models.ImageField(upload_to='main_course_photos', null=True, blank=True)
+    photo_9 = models.ImageField(upload_to='main_course_photos', null=True, blank=True)
     description = models.TextField()
 
     class Meta:
