@@ -300,6 +300,15 @@ class Offer(models.Model):
     title = models.CharField('Название спецпредложения', max_length=255)
     description = models.TextField('Описание спецпредложения')
     photo = models.ImageField(upload_to='procedures')
+    photo_1 = models.ImageField(upload_to='procedures', null=True, blank=True)
+    photo_2 = models.ImageField(upload_to='procedures', null=True, blank=True)
+    photo_3 = models.ImageField(upload_to='procedures', null=True, blank=True)
+    photo_4 = models.ImageField(upload_to='procedures', null=True, blank=True)
+    photo_5 = models.ImageField(upload_to='procedures', null=True, blank=True)
+    photo_6 = models.ImageField(upload_to='procedures', null=True, blank=True)
+    photo_7 = models.ImageField(upload_to='procedures', null=True, blank=True)
+    photo_8 = models.ImageField(upload_to='procedures', null=True, blank=True)
+    photo_9 = models.ImageField(upload_to='procedures', null=True, blank=True)
     price = models.IntegerField()
 
     class Meta:

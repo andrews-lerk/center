@@ -29,40 +29,45 @@
 										<a class="btn btn-link" href="#course-info" style="font-size: 150%">Подробнее о курсе и процедурах <i class="fa fa-angle-double-right"></i></a>
 									</label>
 								</div>
-									<div class="mg-saerch-room">
-										<div class="mg-book-now mt80">
-											<div class="row">
-												<div class="col-lg-3">
-													<h2 class="mg-bn-title">Запишитесь<span class="mg-bn-big">Выберите удобные даты</span></h2>
-												</div>
-												<div class="col-lg-9">
-													<div class="mg-bn-forms">
-														<form method="post">
-															{% csrf_token %}
-															<div class="row">
-																<div class="col-md-6 col-lg-4">
-																	<div class="input-group">
-																		<div class="input-group-addon"><i class="far fa-calendar-alt"></i></div>
-																		{{ form.check_in_out }}
-																	</div>
-																	<span style="color: red">{{ form.check_in_out.errors }}</span>
-																</div>
-																<div class="col-md-6 col-lg-4">
-																	<div class="input-group">
-																			{{ form.adult }}
-																	</div>
-																	<span style="color: red">{{ form.adult.errors }}</span>
-																</div>
-																<div class="col-md-12 col-lg-2">
-																	<button class="btn btn-main btn-block" type="submit">Найти</button>
-																</div>
-															</div>
-														</form>
-													</div>
-												</div>
-											</div>
+								<div id="block-search-inner">
+										<div id='tl-search-form-inner' class='tl-container'>
+											<noindex><a href='https://www.travelline.ru/products/tl-hotel/' rel='nofollow' target='_blank'>TravelLine</a></noindex>
 										</div>
 									</div>
+<!--									<div class="mg-saerch-room">-->
+<!--										<div class="mg-book-now mt80">-->
+<!--											<div class="row">-->
+<!--												<div class="col-lg-3">-->
+<!--													<h2 class="mg-bn-title">Запишитесь<span class="mg-bn-big">Выберите удобные даты</span></h2>-->
+<!--												</div>-->
+<!--												<div class="col-lg-9">-->
+<!--													<div class="mg-bn-forms">-->
+<!--														<form method="post">-->
+<!--															{% csrf_token %}-->
+<!--															<div class="row">-->
+<!--																<div class="col-md-6 col-lg-4">-->
+<!--																	<div class="input-group">-->
+<!--																		<div class="input-group-addon"><i class="far fa-calendar-alt"></i></div>-->
+<!--																		{{ form.check_in_out }}-->
+<!--																	</div>-->
+<!--																	<span style="color: red">{{ form.check_in_out.errors }}</span>-->
+<!--																</div>-->
+<!--																<div class="col-md-6 col-lg-4">-->
+<!--																	<div class="input-group">-->
+<!--																			{{ form.adult }}-->
+<!--																	</div>-->
+<!--																	<span style="color: red">{{ form.adult.errors }}</span>-->
+<!--																</div>-->
+<!--																<div class="col-md-12 col-lg-2">-->
+<!--																	<button class="btn btn-main btn-block" type="submit">Найти</button>-->
+<!--																</div>-->
+<!--															</div>-->
+<!--														</form>-->
+<!--													</div>-->
+<!--												</div>-->
+<!--											</div>-->
+<!--										</div>-->
+<!--									</div>-->
 								</div>
 		<div class="mg-single-room" id="course-info">
 			<div class="container">
