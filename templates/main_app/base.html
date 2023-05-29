@@ -126,6 +126,10 @@ html {
 									<li><a href="{% url 'gallery' %}">Галерея</a>
 									</li>
 									{% endblock %}
+									{% block active_smi %}
+									<li><a href="{% url 'smi' %}">СМИ&nbsp;о&nbsp;нас</a>
+									</li>
+									{% endblock %}
 									<li class="dropdown"><a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Контакты и информация</a>
 										<ul class="dropdown-menu">
 											<li><a href="{% url 'doctors' %}">Наши специалисты</a>

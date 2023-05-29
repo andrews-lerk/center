@@ -11,6 +11,10 @@ class ImageInline(admin.TabularInline):
     model = TourismImage
 
 
+class ImageSmiInline(admin.TabularInline):
+    model = SmiImage
+
+
 class DescriptionAdminForm(forms.ModelForm):
     description = forms.CharField(widget=CKEditorUploadingWidget())
 
@@ -83,6 +87,14 @@ class DescriptionTourismAdminForm(forms.ModelForm):
         fields = '__all__'
 
 
+class DescriptionSmiAdminForm(forms.ModelForm):
+    text = forms.CharField(widget=CKEditorUploadingWidget())
+
+    class Meta:
+        model = Smi
+        fields = '__all__'
+
+
 @admin.register(Description)
 class DescriptionAdmin(admin.ModelAdmin):
     list_display = ('edit', 'active',)
@@ -112,6 +124,12 @@ class MainCourseAdmin(admin.ModelAdmin):
 class TourismAdmin(admin.ModelAdmin):
     inlines = [ImageInline, ]
     form = DescriptionTourismAdminForm
+
+
+@admin.register(Smi)
+class TourismAdmin(admin.ModelAdmin):
+    inlines = [ImageSmiInline, ]
+    form = DescriptionSmiAdminForm
 
 
 @admin.register(Categories)

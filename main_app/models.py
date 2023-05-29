@@ -317,3 +317,21 @@ class Offer(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class Smi(models.Model):
+    title = models.CharField(verbose_name='Заголовок', max_length=250)
+    text = models.TextField()
+    date = models.DateField(auto_now_add=True)
+
+    class Meta:
+        verbose_name = 'СМИ'
+        verbose_name_plural = 'СМИ'
+
+    def get_images(self):
+        return self.smi_record.all()
+
+
+class SmiImage(models.Model):
+    image = models.ImageField(upload_to='smi')
+    record = models.ForeignKey(Smi, on_delete=models.CASCADE, related_name='smi_record')

@@ -1,0 +1,53 @@
+{% extends 'main_app/base.html' %}
+{% load static %}
+
+{% block active_main %}
+	<li ><a href="{% url 'home' %}">Главная</a>
+{% endblock %}
+		{% block active_smi %}
+            <li class="active"><a href="{% url 'smi' %}">СМИ&nbsp;о&nbsp;нас</a>
+            </li>
+            {% endblock %}
+        {% block content %}
+        <div class="mg-page-title parallax">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<h2>СМИ о нас</h2>
+						<p></p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="mg-blog-list">
+			<div class="container">
+				<div id="block-search-inner">
+					<div id='tl-search-form-inner' class='tl-container'>
+						<noindex><a href='https://www.travelline.ru/products/tl-hotel/' rel='nofollow' target='_blank'>TravelLine</a></noindex>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-12">
+						<main>
+							{% for record in records %}
+							<article class="mg-post">
+								<header>
+									<h2 class="mg-post-title"><a rel="bookmark">{{ record.title }}</a></h2>
+									<div class="mg-post-meta"><span><a>{{ record.date }}</a></span></div>
+								</header>
+								<div>
+									{{ record.text|safe }}
+								</div>
+								<div class="mg-post-images-slider">
+									{% for img in record.get_images %}
+									<a><img class="img-fluid" src="{{ img.image.url }}" alt=""/></a>
+									{% endfor %}
+								</div>
+							</article>
+							{% endfor %}
+						</main>
+					</div>
+				</div>
+			</div>
+		</div>
+        {% endblock %}

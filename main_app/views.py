@@ -341,6 +341,14 @@ def view_tourism(request):
     return render(request, 'main_app/tourism.html', context)
 
 
+def view_smi(request):
+    records = Smi.objects.all()
+    context = {
+        'records': records,
+    }
+    return render(request, 'main_app/smi.html', context)
+
+
 def view_rules(request):
     record = Rules.objects.all().first()
     context = {
