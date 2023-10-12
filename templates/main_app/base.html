@@ -7,7 +7,7 @@
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="shortcut icon" href="{% static 'assets/images/logo (2).png' %}" type="image/png">
+		<link rel="shortcut icon" href="{% static 'assets/images/logo_.jpg' %}" type="image/jpg">
 		{% yandex_metrica %}
 
 		<title>Гостиничный центр оздоровительного туризма "Амбер Сакрум", Калининградская область - официальный сайт</title>
@@ -90,9 +90,22 @@ html {
 		<div class="preloader"></div>
 		{% block header %}
 		<header class="header transp sticky">
+			<div style="background-color: #132027; height: 45px;">
+				<div class="container" style="height: 100%; display: flex; align-items: center; justify-content: space-between">
+					<div style="display: flex; align-items: center; height: 100%">
+						<div><i class="fa fa-phone" style="color: whitesmoke"></i><a href="tel:+7-(900)-56-86-945"> +7-(900)-56-86-945</a></div>
+					</div>
+					<div style="display: flex; align-items: center; height: 150%">
+						<a href="https://vk.com/club218115875" style="padding-right: 15px"><i class="fab fa-vk fa-2x" style="icon-link-icon-size: 2em"></i></a>
+						<p></p>
+						<a href="https://instagram.com/amber_sacrum?igshid=OGQ5ZDc2ODk2ZA=="><i class="fab fa-instagram fa-2x"></i></a>
+					</div>
+				</div>
+			</div>
 			<nav class="navbar navbar-inverse">
 				<div class="container">
-					<div class="navbar navbar-expand-md justify-content-between"><a class="navbar-brand" href="{% url 'home' %}"><img style="height: 50px; width: 80px;" src="{% static 'assets/images/logo__.jpg' %}" alt="logo"></a>
+					<div class="navbar navbar-expand-md justify-content-between">
+						<a class="navbar-brand" href="{% url 'home' %}"><img style="max-height: 110px; max-width: 110px;" src="{% static 'assets/images/logo_clear.png' %}" alt="logo"></a>
 						<div class="mg-navs">
 							<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
 							<div class="collapse navbar-collapse ml-auto" id="navbarSupportedContent">
@@ -149,8 +162,6 @@ html {
 							</div>
 						</div>
 					</div>
-					<div class="mg-search-box-cont" style="position: absolute; right: 7%; top: 15%"><a href="#contacts"><i style="font-size: 150%" class="fa fa-phone"></i></a>
-							</div>
 				</div>
 			</nav>
 		</header>

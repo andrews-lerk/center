@@ -112,12 +112,12 @@
 												<div class="col-sm-5"><a href="#"><img class="img-fluid" src="{{ course_photos.full_course_maxi.url }}" alt=""/></a></div>
 												<div class="col-sm-7">
 													<h3 class="mg-avl-room-title"><a href="{% url 'booking' %}">Комплексная программа оздоровления "макси"</a></h3>
-													<h4><span>от ₽{{ price.full_health_maxi }}<sup>.00</sup>/Сутки</span></h4>
+													<h4><span>от <sup style="color: grey; font-size: 85%"><strike>7800</strike></sup>{{ price.full_health_maxi }}₽/Сутки</span></h4>
 													<p>Пройдите комплекс оздоровительных процедур</p>
 													<div class="row mg-room-fecilities">
 													</div><a class="btn btn-dark" href="{% url 'booking' %}#course-info">Подробнее <i class="fa fa-angle-double-right"></i></a>
 													<!--<a class="btn btn-main" href="{% url 'booking' %}">Записаться</a>-->
-													<a href="#" data-tl-booking-open="true" data-tl-rate="479296" class='btn btn-main'>Забронировать программу</a>
+													<a href="#" data-tl-booking-open="true" data-tl-rate="479296" class='btn btn-main'>Забронировать</a>
 												</div>
 											</div>
 											<p></p>
@@ -125,12 +125,12 @@
 												<div class="col-sm-5"><a href="#"><img class="img-fluid" src="{{ course_photos.full_course_mini.url }}" alt=""/></a></div>
 												<div class="col-sm-7">
 													<h3 class="mg-avl-room-title"><a href="{% url 'booking-mini' %}">Комплексная программа оздоровления "мини"</a></h3>
-													<h4><span>от ₽{{ price.full_health_mini }}<sup>.00</sup>/Сутки</span></h4>
+													<h4><span>от <sup style="color: grey; font-size: 85%"><strike>7100</strike></sup>{{ price.full_health_mini }}₽/Сутки</span></h4>
 													<p>Пройдите комплекс оздоровительных процедур</p>
 													<div class="row mg-room-fecilities">
 													</div><a class="btn btn-dark" href="{% url 'booking-mini' %}#course-info">Подробнее <i class="fa fa-angle-double-right"></i></a>
 													<!--<a class="btn btn-main" href="{% url 'booking-mini' %}">Записаться</a>-->
-													<a href="#" data-tl-booking-open="true" data-tl-rate="512871" class='btn btn-main'>Забронировать программу</a>
+													<a href="#" data-tl-booking-open="true" data-tl-rate="512871" class='btn btn-main'>Забронировать</a>
 												</div>
 											</div>
 											<p></p>
@@ -138,7 +138,7 @@
 												<div class="col-sm-5"><a href="#"><img class="img-fluid" src="{{ course_photos.day.url }}" alt=""/></a></div>
 												<div class="col-sm-7">
 													<h3 class="mg-avl-room-title"><a href="{% url 'book-day' %}">День здоровья "макси"</a></h3>
-													<h4><span>от ₽{{ price.health_day }}<sup>.00</sup>/День</span></h4>
+													<h4><span>от <sup style="color: grey; font-size: 85%"><strike>5600</strike></sup>{{ price.health_day }}₽/День</span></h4>
 													<p>Пройдите курс оздоровления за 1 день</p>
 													<div class="row mg-room-fecilities">
 													</div><a class="btn btn-dark" href="{% url 'book-day' %}">Подробнее <i class="fa fa-angle-double-right"></i></a>
@@ -150,7 +150,7 @@
 												<div class="col-sm-5"><a href="#"><img class="img-fluid" src="{{ course_photos.day_mini.url }}" alt=""/></a></div>
 												<div class="col-sm-7">
 													<h3 class="mg-avl-room-title"><a href="{% url 'book-day-mini' %}">День здоровья "мини"</a></h3>
-													<h4><span>от ₽{{ price.health_day_mini }}<sup>.00</sup>/День</span></h4>
+													<h4><span>от <sup style="color: grey; font-size: 85%"><strike>3800</strike></sup>{{ price.health_day_mini }}₽/День</span></h4>
 													<p>Пройдите курс оздоровления за 1 день</p>
 													<div class="row mg-room-fecilities">
 													</div><a class="btn btn-dark" href="{% url 'book-day-mini' %}">Подробнее <i class="fa fa-angle-double-right"></i></a>
@@ -162,7 +162,7 @@
 												<div class="col-sm-5"><a href="#"><img class="img-fluid" src="{{ course_photos.osteopat.url }}" alt=""/></a></div>
 												<div class="col-sm-7">
 													<h3 class="mg-avl-room-title"><a href="{% url 'book-osteopat' %}">Прием доктора-остеопата</a></h3>
-													<h4><span>от ₽{{ price.osteopat }}<sup>.00</sup>/Прием</span></h4>
+													<h4><span>от <sup style="color: grey; font-size: 85%"><strike>6000</strike></sup>{{ price.osteopat }}₽/Прием</span></h4>
 													<p></p>
 													<div class="row mg-room-fecilities">
 													</div><a class="btn btn-dark" href="{% url 'book-osteopat' %}">Подробнее <i class="fa fa-angle-double-right"></i></a>
