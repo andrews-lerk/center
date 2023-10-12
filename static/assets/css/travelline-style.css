@@ -54,3 +54,31 @@
         background: rgba(22, 38, 46, 0.37);
     }
 }
+
+.tl-button {
+    font-family: 'Open Sans', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 25px;
+    text-align: center;
+    text-decoration: none;
+    color: #FFFFFF;
+    background: #16262E;
+    display: block;
+    width: 300px;
+    margin-top: 30px;
+    padding: 16px 24px;
+}
+a.tl-button:hover {
+    background: #2F4854;
+    color: #FFFFFF;
+}
+.tl-button-additional {
+    display: block;
+    width: 237px;
+    margin: 15px auto 0;
+}
+.tl-button-bottom {
+    margin-top: 50px;
+}
