@@ -244,6 +244,12 @@ html {
 		<script src="{% static 'assets/js/gmaps.min.js' %}"></script>
 		<script src="{% static 'assets/js/jquery.parallax-1.1.3.js' %}"></script>
 		<script src="{% static 'assets/js/scripts.js' %}"></script>
+		<script>
+			$(document).ready(function () {
+			var ytFrame = '<iframe id="player" class="video" src="https://www.youtube.com/embed/WZLp75JO4so?si=A7OOr_CYbkkuUj01?autoplay=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen="allowfullscreen" width="560" height="315"></iframe>';
+			$('.ytLoader').html(ytFrame);
+			});
+		</script>
 		{% endblock scripts %}
 	</body>
 </html>

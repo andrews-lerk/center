@@ -16,7 +16,7 @@
 			</div>
 		</div>
 		<div class="mg-single-room-price">
-			<div class="mg-srp-inner">₽{{ price.health_back }}<span>/Курс</span></div>
+			<div class="mg-srp-inner">₽{{ price.health_back }}<span>/Курс 7 дней</span></div>
 		</div>
 		<div class="mg-page">
 			<div class="container">
@@ -26,7 +26,7 @@
 							<div class="tab-content">
 								<div class="mg-filter">
 								<label>
-										<a class="btn btn-link" href="#course-info" style="font-size: 150%">Подробнее о приеме <i class="fa fa-angle-double-right"></i></a>
+										<a class="btn btn-link" href="#course-info" style="font-size: 150%">Подробнее о курсе <i class="fa fa-angle-double-right"></i></a>
 									</label>
 								</div>
 									<div class="mg-saerch-room">
@@ -38,11 +38,9 @@
 												<div class="col-lg-9">
 													<div class="mg-bn-forms">
 															<div class="row">
-																<div class="col-md-6 col-lg-4">
-																<div class="col-md-12 col-lg-9">
-																	<div><i class="fa fa-phone" style="color: whitesmoke"></i><a href="tel:{{ phone }}"> {{ phone }}</a></div>
+																<div class="col-md-12 col-lg-6">
+																	<div><i class="fa fa-phone" style="color: whitesmoke; font-size: 150%"></i><a href="tel:{{ phone }}" style="font-size: 130%"> {{ phone }}</a></div>
 																</div>
-															</div>
 													</div>
 												</div>
 											</div>
@@ -108,7 +106,7 @@
                             </div>
 					</div>
 					<div class="col-lg-5 mg-room-fecilities">
-						<h2 class="mg-sec-left-title">Удобства приема</h2>
+						<h2 class="mg-sec-left-title">Удобства курса</h2>
 						<div class="row">
 							<div class="col-6">
 								<ul>
@@ -132,7 +130,7 @@
 				<div class="row">
 					<div class="col-md-12">
 						<div class="mg-single-room-txt">
-							<h2 class="mg-sec-left-title">Описание приема</h2>
+							<h2 class="mg-sec-left-title">Описание курса</h2>
 							{{ course.description|safe }}
 							</div>
 					</div>
