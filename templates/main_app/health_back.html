@@ -1,0 +1,164 @@
+{% extends 'main_app/base.html' %}
+{% load static %}
+
+{% block active_main %}
+	<li ><a href="{% url 'home' %}">Главная</a>
+{% endblock %}
+		{% block content %}
+		<div class="mg-page-title parallax">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<h2>Здоровая спина</h2>
+						<p></p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="mg-single-room-price">
+			<div class="mg-srp-inner">₽{{ price.health_back }}<span>/Курс</span></div>
+		</div>
+		<div class="mg-page">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="mg-booking-form">
+							<div class="tab-content">
+								<div class="mg-filter">
+								<label>
+										<a class="btn btn-link" href="#course-info" style="font-size: 150%">Подробнее о приеме <i class="fa fa-angle-double-right"></i></a>
+									</label>
+								</div>
+									<div class="mg-saerch-room">
+										<div class="mg-book-now mt80">
+											<div class="row">
+												<div class="col-lg-3">
+													<h2 class="mg-bn-title">Запишитесь<span class="mg-bn-big">По телефону</span></h2>
+												</div>
+												<div class="col-lg-9">
+													<div class="mg-bn-forms">
+															<div class="row">
+																<div class="col-md-6 col-lg-4">
+																<div class="col-md-12 col-lg-9">
+																	<div><i class="fa fa-phone" style="color: whitesmoke"></i><a href="tel:{{ phone }}"> {{ phone }}</a></div>
+																</div>
+															</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+		<div class="mg-single-room" id="course-info">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-7 mb-4 mb-lg-0">
+						<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+                		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+						<div id="carouselExampleFade{{ forloop.counter }}" class="carousel slide carousel-fade">
+                              <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                  <img src="{{ course.photo_1.url }}" class="d-block w-100" alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                  <img src="{{ course.photo_2.url }}" class="d-block w-100" alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                  <img src="{{ course.photo_3.url }}" class="d-block w-100" alt="...">
+                                </div>
+								  {% if course.photo_4 %}
+                                  <div class="carousel-item">
+                                  <img src="{{ course.photo_4.url }}" class="d-block w-100" alt="...">
+                                </div>
+								  {% endif %}
+								  {% if course.photo_5 %}
+								  <div class="carousel-item">
+                                  <img src="{{ course.photo_5.url }}" class="d-block w-100" alt="...">
+                                </div>
+								  {% endif %}
+								  {% if course.photo_6 %}
+								  <div class="carousel-item">
+                                  <img src="{{ course.photo_6.url }}" class="d-block w-100" alt="...">
+                                </div>
+								  {% endif %}
+								  {% if course.photo_7 %}
+								  <div class="carousel-item">
+                                  <img src="{{ course.photo_7.url }}" class="d-block w-100" alt="...">
+                                </div>
+								  {% endif %}
+								  {% if course.photo_8 %}
+								  <div class="carousel-item">
+                                  <img src="{{ course.photo_8.url }}" class="d-block w-100" alt="...">
+                                </div>
+								  {% endif %}
+								  {% if course.photo_9 %}
+								  <div class="carousel-item">
+                                  <img src="{{ course.photo_9.url }}" class="d-block w-100" alt="...">
+                                </div>
+								  {% endif %}
+                              </div>
+                              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade{{ forloop.counter }}" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                              </button>
+                              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade{{ forloop.counter }}" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                              </button>
+                            </div>
+					</div>
+					<div class="col-lg-5 mg-room-fecilities">
+						<h2 class="mg-sec-left-title">Удобства приема</h2>
+						<div class="row">
+							<div class="col-6">
+								<ul>
+									<li><i class="far fa-sun"></i>Индивидуальная программа</li>
+									<li><i class="fp-ht-swimmingpool"></i>Бассейн и SPA</li>
+									<li><i class="fp-ht-bed"></i> 2-x спальные кровати</li>
+									<li><i class="fp-ht-maid"></i> Уборка номеров</li>
+								</ul>
+							</div>
+							<div class="col-6">
+								<ul>
+									<li><i class="fp-ht-food"></i> 3-х разовое питание </li>
+									<li><i class="fp-ht-tv"></i> TV LCD</li>
+									<li><i class="fp-ht-computer"></i>Бесплатный Wi-fi</li>
+									<li><i class="fp-ht-parking"></i>Бесплатная парковка</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<div class="mg-single-room-txt">
+							<h2 class="mg-sec-left-title">Описание приема</h2>
+							{{ course.description|safe }}
+							</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+<link rel="stylesheet" href="{% static 'assets/libs/bootstrap/css/bootstrap.min.css' %}">
+		<link rel="stylesheet" href="{% static 'assets/libs/fontawesome/css/fontawesome-all.min.css' %}">
+		<link rel="stylesheet" href="{% static 'assets/css/owl.carousel.css' %}">
+		<link rel="stylesheet" href="{% static 'assets/css/owl.theme.css' %}">
+		<link rel="stylesheet" href="{% static 'assets/css/owl.transitions.css' %}">
+		<link rel="stylesheet" href="{% static 'assets/css/cs-select.css' %}">
+		<link rel="stylesheet" href="{% static 'assets/css/bootstrap-datepicker3.min.css' %}">
+		<link rel="stylesheet" href="{% static 'assets/css/freepik.hotels.css' %}">
+		<link rel="stylesheet" href="{% static 'assets/css/nivo-lightbox.min.css' %}">
+		<link rel="stylesheet" href="{% static 'assets/css/nivo-lightbox-theme.css' %}">
+		<link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+		<link rel="stylesheet" href="{% static 'assets/css/travelline-style.css' %}">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="{% static 'datepicker/js/datepicker.min.js' %}"></script>
+<link rel="stylesheet" href="{% static 'datepicker/css/datepicker.min.css' %}">
+		{% endblock content %}

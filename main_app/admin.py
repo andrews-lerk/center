@@ -79,6 +79,46 @@ class DescriptionOsteopatAdminForm(forms.ModelForm):
         fields = '__all__'
 
 
+class DescriptionHealthBackAdminForm(forms.ModelForm):
+    description = forms.CharField(widget=CKEditorUploadingWidget())
+
+    class Meta:
+        model = HealthBack
+        fields = '__all__'
+
+
+class DescriptionHealthTourism3AdminForm(forms.ModelForm):
+    description = forms.CharField(widget=CKEditorUploadingWidget())
+
+    class Meta:
+        model = HealthTourism3
+        fields = '__all__'
+
+
+class DescriptionHealthTourism5AdminForm(forms.ModelForm):
+    description = forms.CharField(widget=CKEditorUploadingWidget())
+
+    class Meta:
+        model = HealthTourism5
+        fields = '__all__'
+
+
+class DescriptionHealthTourism7AdminForm(forms.ModelForm):
+    description = forms.CharField(widget=CKEditorUploadingWidget())
+
+    class Meta:
+        model = HealthTourism7
+        fields = '__all__'
+
+
+class DescriptionHealthTourism10AdminForm(forms.ModelForm):
+    description = forms.CharField(widget=CKEditorUploadingWidget())
+
+    class Meta:
+        model = HealthTourism10
+        fields = '__all__'
+
+
 class DescriptionTourismAdminForm(forms.ModelForm):
     text = forms.CharField(widget=CKEditorUploadingWidget())
 
@@ -113,6 +153,31 @@ class RoomsAdmin(admin.ModelAdmin):
     @admin.display(description='Название')
     def full_title(self, obj):
         return f'{obj.title} {obj.pk}'
+
+
+@admin.register(HealthBack)
+class MainCourseAdmin(admin.ModelAdmin):
+    form = DescriptionHealthBackAdminForm
+
+
+@admin.register(HealthTourism3)
+class MainCourseAdmin(admin.ModelAdmin):
+    form = DescriptionHealthTourism3AdminForm
+
+
+@admin.register(HealthTourism5)
+class MainCourseAdmin(admin.ModelAdmin):
+    form = DescriptionHealthTourism5AdminForm
+
+
+@admin.register(HealthTourism7)
+class MainCourseAdmin(admin.ModelAdmin):
+    form = DescriptionHealthTourism7AdminForm
+
+
+@admin.register(HealthTourism10)
+class MainCourseAdmin(admin.ModelAdmin):
+    form = DescriptionHealthTourism10AdminForm
 
 
 @admin.register(MainCourse)

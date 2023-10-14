@@ -28,6 +28,18 @@ def main_page(request):
     return render(request, 'main_app/index.html', context)
 
 
+def book_health_back(request):
+    price = Prices.objects.all().first()
+    phone = MainPhone.objects.all().first()
+    course = HealthBack.objects.all().first()
+    context = {
+        'phone': phone,
+        'price': price,
+        'course': course
+    }
+    return render(request, 'main_app/health_back.html', context)
+
+
 def booking(request):
     form = DateForm
     if request.POST:
@@ -313,6 +325,58 @@ def book_day_mini(request):
         'course': course
     }
     return render(request, 'main_app/book-day-mini.html', context)
+
+
+def book_health_tourism_3(request):
+    price = Prices.objects.all().first().health_tourism_3
+    phone = MainPhone.objects.all().first()
+    course = HealthTourism3.objects.all().first()
+    context = {
+        'phone': phone,
+        'price': price,
+        'course': course,
+        'title': 'Лечение и туризм 3 дня'
+    }
+    return render(request, 'main_app/health_tourism.html', context)
+
+
+def book_health_tourism_5(request):
+    price = Prices.objects.all().first().health_tourism_5
+    phone = MainPhone.objects.all().first()
+    course = HealthTourism5.objects.all().first()
+    context = {
+        'phone': phone,
+        'price': price,
+        'course': course,
+        'title': 'Лечение и туризм 5 дней'
+    }
+    return render(request, 'main_app/health_tourism.html', context)
+
+
+def book_health_tourism_7(request):
+    price = Prices.objects.all().first().health_tourism_7
+    phone = MainPhone.objects.all().first()
+    course = HealthTourism7.objects.all().first()
+    context = {
+        'phone': phone,
+        'price': price,
+        'course': course,
+        'title': 'Лечение и туризм 7 дней'
+    }
+    return render(request, 'main_app/health_tourism.html', context)
+
+
+def book_health_tourism_10(request):
+    price = Prices.objects.all().first().health_tourism_10
+    phone = MainPhone.objects.all().first()
+    course = HealthTourism10.objects.all().first()
+    context = {
+        'phone': phone,
+        'price': price,
+        'course': course,
+        'title': 'Лечение и туризм 10 дней'
+    }
+    return render(request, 'main_app/health_tourism.html', context)
 
 
 def view_gallery(request):

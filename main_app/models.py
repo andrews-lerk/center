@@ -16,11 +16,16 @@ class MainPhotos(models.Model):
 
 
 class CoursesPhoto(models.Model):
+    health_back = models.ImageField(upload_to='course_photos', null=True, blank=True)
     full_course_maxi = models.ImageField(upload_to='course_photos')
     full_course_mini = models.ImageField(upload_to='course_photos', null=True)
     day = models.ImageField(upload_to='course_photos')
     day_mini = models.ImageField(upload_to='course_photos', null=True)
     osteopat = models.ImageField(upload_to='course_photos')
+    health_tourism_3 = models.ImageField(upload_to='course_photos', null=True, blank=True)
+    health_tourism_5 = models.ImageField(upload_to='course_photos', null=True, blank=True)
+    health_tourism_7 = models.ImageField(upload_to='course_photos', null=True, blank=True)
+    health_tourism_10 = models.ImageField(upload_to='course_photos', null=True, blank=True)
 
     class Meta:
         verbose_name = 'Фото курсов лечения на главной странице'
@@ -63,6 +68,26 @@ class Rooms(models.Model):
 
     def __str__(self):
         return f'{self.title} {self.id}'
+
+
+class HealthBack(models.Model):
+    photo_1 = models.ImageField(upload_to='main_course_photos')
+    photo_2 = models.ImageField(upload_to='main_course_photos')
+    photo_3 = models.ImageField(upload_to='main_course_photos')
+    photo_4 = models.ImageField(upload_to='main_course_photos', null=True, blank=True)
+    photo_5 = models.ImageField(upload_to='main_course_photos', null=True, blank=True)
+    photo_6 = models.ImageField(upload_to='main_course_photos', null=True, blank=True)
+    photo_7 = models.ImageField(upload_to='main_course_photos', null=True, blank=True)
+    photo_8 = models.ImageField(upload_to='main_course_photos', null=True, blank=True)
+    photo_9 = models.ImageField(upload_to='main_course_photos', null=True, blank=True)
+    description = models.TextField()
+
+    class Meta:
+        verbose_name = 'Описание для здоровой спины'
+        verbose_name_plural = 'Описание для здоровой спины'
+
+    def __str__(self):
+        return 'Описание для здоровой спины'
 
 
 class MainCourse(models.Model):
@@ -165,7 +190,89 @@ class DayMiniDescription(models.Model):
         return 'Описание дня здоровья мини'
 
 
+class HealthTourism3(models.Model):
+    photo_1 = models.ImageField(upload_to='main_course_photos')
+    photo_2 = models.ImageField(upload_to='main_course_photos')
+    photo_3 = models.ImageField(upload_to='main_course_photos')
+    photo_4 = models.ImageField(upload_to='main_course_photos', null=True, blank=True)
+    photo_5 = models.ImageField(upload_to='main_course_photos', null=True, blank=True)
+    photo_6 = models.ImageField(upload_to='main_course_photos', null=True, blank=True)
+    photo_7 = models.ImageField(upload_to='main_course_photos', null=True, blank=True)
+    photo_8 = models.ImageField(upload_to='main_course_photos', null=True, blank=True)
+    photo_9 = models.ImageField(upload_to='main_course_photos', null=True, blank=True)
+    description = models.TextField()
+
+    class Meta:
+        verbose_name = 'Описание для лечения и туризма 3 дня'
+        verbose_name_plural = 'Описание для лечения и туризма 3 дня'
+
+    def __str__(self):
+        return 'Описание для лечения и туризма 3 дня'
+
+
+class HealthTourism5(models.Model):
+    photo_1 = models.ImageField(upload_to='main_course_photos')
+    photo_2 = models.ImageField(upload_to='main_course_photos')
+    photo_3 = models.ImageField(upload_to='main_course_photos')
+    photo_4 = models.ImageField(upload_to='main_course_photos', null=True, blank=True)
+    photo_5 = models.ImageField(upload_to='main_course_photos', null=True, blank=True)
+    photo_6 = models.ImageField(upload_to='main_course_photos', null=True, blank=True)
+    photo_7 = models.ImageField(upload_to='main_course_photos', null=True, blank=True)
+    photo_8 = models.ImageField(upload_to='main_course_photos', null=True, blank=True)
+    photo_9 = models.ImageField(upload_to='main_course_photos', null=True, blank=True)
+    description = models.TextField()
+
+    class Meta:
+        verbose_name = 'Описание для лечения и туризма 5 дня'
+        verbose_name_plural = 'Описание для лечения и туризма 5 дня'
+
+    def __str__(self):
+        return 'Описание для лечения и туризма 5 дня'
+
+
+class HealthTourism7(models.Model):
+    photo_1 = models.ImageField(upload_to='main_course_photos')
+    photo_2 = models.ImageField(upload_to='main_course_photos')
+    photo_3 = models.ImageField(upload_to='main_course_photos')
+    photo_4 = models.ImageField(upload_to='main_course_photos', null=True, blank=True)
+    photo_5 = models.ImageField(upload_to='main_course_photos', null=True, blank=True)
+    photo_6 = models.ImageField(upload_to='main_course_photos', null=True, blank=True)
+    photo_7 = models.ImageField(upload_to='main_course_photos', null=True, blank=True)
+    photo_8 = models.ImageField(upload_to='main_course_photos', null=True, blank=True)
+    photo_9 = models.ImageField(upload_to='main_course_photos', null=True, blank=True)
+    description = models.TextField()
+
+    class Meta:
+        verbose_name = 'Описание для лечения и туризма 7 дней'
+        verbose_name_plural = 'Описание для лечения и туризма 7 дней'
+
+    def __str__(self):
+        return 'Описание для лечения и туризма 7 дней'
+
+
+class HealthTourism10(models.Model):
+    photo_1 = models.ImageField(upload_to='main_course_photos')
+    photo_2 = models.ImageField(upload_to='main_course_photos')
+    photo_3 = models.ImageField(upload_to='main_course_photos')
+    photo_4 = models.ImageField(upload_to='main_course_photos', null=True, blank=True)
+    photo_5 = models.ImageField(upload_to='main_course_photos', null=True, blank=True)
+    photo_6 = models.ImageField(upload_to='main_course_photos', null=True, blank=True)
+    photo_7 = models.ImageField(upload_to='main_course_photos', null=True, blank=True)
+    photo_8 = models.ImageField(upload_to='main_course_photos', null=True, blank=True)
+    photo_9 = models.ImageField(upload_to='main_course_photos', null=True, blank=True)
+    description = models.TextField()
+
+    class Meta:
+        verbose_name = 'Описание для лечения и туризма 10 дней'
+        verbose_name_plural = 'Описание для лечения и туризма 10 дней'
+
+    def __str__(self):
+        return 'Описание для лечения и туризма 10 дней'
+
+
 class Prices(models.Model):
+    health_back = models.IntegerField(verbose_name='Здоровая спина',
+                                      default=8800)
     full_health_maxi = models.IntegerField(verbose_name='Сутки полного курса лечения МАКСИ',
                                            default=8800)
     full_health_mini = models.IntegerField(verbose_name='Сутки полного курса лечения МИНИ',
@@ -173,6 +280,14 @@ class Prices(models.Model):
     health_day = models.IntegerField(verbose_name='День здоровья', default=6800)
     health_day_mini = models.IntegerField(verbose_name='День здоровья "мини"', default=2700)
     osteopat = models.IntegerField(verbose_name='Посещение остеопата', default=5000)
+    health_tourism_3 = models.IntegerField(verbose_name='Здоровье и туризм 3 дня',
+                                           default=8800)
+    health_tourism_5 = models.IntegerField(verbose_name='Здоровье и туризм 5 дня',
+                                           default=8800)
+    health_tourism_7 = models.IntegerField(verbose_name='Здоровье и туризм 7 дня',
+                                           default=8800)
+    health_tourism_10 = models.IntegerField(verbose_name='Здоровье и туризм 10 дня',
+                                            default=8800)
 
     class Meta:
         verbose_name = 'Прайс лист'
