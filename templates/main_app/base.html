@@ -151,6 +151,8 @@ html {
 									<li><a href="{% url 'gallery' %}">Галерея</a>
 									</li>
 									{% endblock %}
+									<li><a href="{% url 'tourism' %}">Туризм&nbsp;и досуг</a>
+									</li>
 									{% block active_smi %}
 									<li><a href="{% url 'smi' %}">СМИ&nbsp;о&nbsp;нас</a>
 									</li>
@@ -158,8 +160,6 @@ html {
 									<li class="dropdown"><a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Контакты и информация</a>
 										<ul class="dropdown-menu">
 											<li><a href="{% url 'doctors' %}">Наши специалисты</a>
-											</li>
-											<li><a href="{% url 'tourism' %}">Туризм и досуг</a>
 											</li>
 											<li><a href="{% url 'rules' %}">Правовая информация</a>
 											</li>
