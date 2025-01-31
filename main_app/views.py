@@ -398,7 +398,7 @@ def view_doctors(request):
 
 
 def view_tourism(request):
-    records = Tourism.objects.all()
+    records = Tourism.objects.all().order_by('-date')
     context = {
         'records': records,
     }
