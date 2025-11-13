@@ -438,7 +438,7 @@ def view_procedures(request):
 
 
 def view_offer(request):
-    record = Offer.objects.all()
+    record = Offer.objects.all().order_by('-pk')
     context = {
         'offers': record,
     }
